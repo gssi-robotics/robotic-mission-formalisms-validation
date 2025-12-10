@@ -1,0 +1,41 @@
+<table>
+  <caption>BT Control structures</caption>
+  <colgroup>
+    <col>
+    <col style="width:20%">
+    <col style="width:20%">
+    <col style="width:20%">
+    <col style="width:20%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Sequential</th>
+      <th>Parallel</th>
+      <th>Conditional</th>
+      <th>Loop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- BT -->
+    <tr>
+      <td rowspan="3"><strong>BT</strong></td>
+      <td>From left to right from the Sequence or Fallback node</td>
+      <td>Parallel Node</td>
+      <td>Combination of Fallback, Sequence, and Condition Nodes</td>
+      <td>Decorator (n-repetitions)</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/control_structures/bt_seq.pdf" style="width:90%;"></td>
+      <td><img src="imgs/control_structures/bt_par.pdf" style="width:90%;"></td>
+      <td><img src="imgs/control_structures/bt_cond.pdf" style="width:90%;"></td>
+      <td><img src="imgs/control_structures/bt_loop.pdf" style="width:60%;"></td>
+    </tr>
+    <tr>
+      <td>A1 is executed before A2</td>
+      <td>A1 and A2 are executed in parallel</td>
+      <td>If C is true, then A1 is performed; if C is false, then A2 is performed</td>
+      <td>The repeat decorator executes A1 for at most n-times</td>
+    </tr>
+  </tbody>
+</table>

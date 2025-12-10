@@ -1,0 +1,41 @@
+<table>
+  <caption>Control structures</caption>
+  <colgroup>
+    <col>
+    <col style="width:20%">
+    <col style="width:20%">
+    <col style="width:20%">
+    <col style="width:20%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Sequential</th>
+      <th>Parallel</th>
+      <th>Conditional</th>
+      <th>Loop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- HTN -->
+    <tr>
+      <td rowspan="3"><strong>HTN</strong></td>
+      <td>Method with sequential relationship</td>
+      <td>Method with unordered relation</td>
+      <td>Methods combination with different preconditions</td>
+      <td>Achievable using recursive methods and conditions</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/control_structures/htn_seq.pdf" style="width:90%;"></td>
+      <td><img src="imgs/control_structures/htn_par.pdf" style="width:90%;"></td>
+      <td><img src="imgs/control_structures/htn_cond.pdf" style="width:69%;"></td>
+      <td><img src="imgs/control_structures/htn_loop.pdf" style="width:31%;"></td>
+    </tr>
+    <tr>
+      <td>T1 is executed before T2</td>
+      <td>T1 and T2 are executed in any order, in parallel if possible</td>
+      <td>If m1's preconditions hold, T2 is executed; if m2's preconditions hold, T3 is executed</td>
+      <td>As long as m1's preconditions hold, T1 is executed</td>
+    </tr>
+  </tbody>
+</table>
