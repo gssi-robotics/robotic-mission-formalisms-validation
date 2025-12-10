@@ -1,41 +1,46 @@
-<table>
-  <caption>Control structures</caption>
-  <colgroup>
-    <col>
-    <col style="width:20%">
-    <col style="width:20%">
-    <col style="width:20%">
-    <col style="width:20%">
-  </colgroup>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Sequential</th>
-      <th>Parallel</th>
-      <th>Conditional</th>
-      <th>Loop</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- SM -->
-    <tr>
-      <td rowspan="3"><strong>SM</strong></td>
-      <td>From initial to final state following triggered events</td>
-      <td>Fork pseudostate</td>
-      <td>Choice pseudostate</td>
-      <td>Transition cycles</td>
-    </tr>
-    <tr>
-      <td><img src="images/sm_seq.png" style="width:90%;"></td>
-      <td><img src="images/sm_par.png" style="width:90%;"></td>
-      <td><img src="images/sm_cond.png" style="width:100%;"></td>
-      <td><img src="images/sm_loop.png" style="width:90%;"></td>
-    </tr>
-    <tr>
-      <td>When e1 is triggered, state S remains active until e2 is triggered</td>
-      <td>The fork pseudostate splits the incoming transition into two transitions, activating S1 and S2</td>
-      <td>If g1 is true, S1 is executed; otherwise if g2 is true, S2 is executed</td>
-      <td>S remains active until e1 is triggered</td>
-    </tr>
-  </tbody>
-</table>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
+<div class="table-responsive">
+  <table>
+    <caption class="text-start text-center">Control structures</caption>
+    <colgroup>
+      <col>
+      <col style="width:20%">
+      <col style="width:20%">
+      <col style="width:20%">
+      <col style="width:20%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Sequential</th>
+        <th>Parallel</th>
+        <th>Conditional</th>
+        <th>Loop</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- SM -->
+      <tr>
+        <td rowspan="3"><strong>SM</strong></td>
+        <td>From initial to final state following triggered events</td>
+        <td>Fork pseudostate</td>
+        <td>Choice pseudostate</td>
+        <td>Transition cycles</td>
+      </tr>
+      <tr>
+        <td><img src="../images/sm_seq.png" style="width:90%;"></td>
+        <td><img src="../images/sm_par.png" style="width:90%;"></td>
+        <td><img src="../images/sm_cond.png" style="width:100%;"></td>
+        <td><img src="../images/sm_loop.png" style="width:90%;"></td>
+      </tr>
+      <tr>
+        <td>When e1 is triggered, state S remains active until e2 is triggered</td>
+        <td>The fork pseudostate splits the incoming transition into two transitions, activating S1 and S2</td>
+        <td>If g1 is true, S1 is executed; otherwise if g2 is true, S2 is executed</td>
+        <td>S remains active until e1 is triggered</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

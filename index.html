@@ -231,259 +231,89 @@
 <div id="rq2" class="mb-4 p-3 border rounded d-none">
   <h4>RQ2 – Expressiveness and Usage Concerns</h4>
 
-  <p>Please answer the following for each formalism you are familiar with.</p>
+  <p>Please answer only for formalisms you are familiar with.</p>
 
+  <object type="text/html" data="tables/concerns.html" width="100%" height="400px"></object>
   <!-- FORMALISM BLOCK TEMPLATE -->
-  <div class="rq2-block d-none" data-form="bt">
-    <h5>Behavior Trees</h5>
+  <div class="rq2-block" data-form="rq2">
   
     <label>Please rate your agreement with the following concerns:</label> <br>
   
     <label class="mt-2">Reactive behavior</label>
-    <select class="form-select mb-1" name="rq2_bt_reactive">
+    <select class="form-select mb-1" name="rq2_reactive">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_reactive_additional"
+    <textarea class="form-control mb-3" name="rq2_reactive_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Decision making</label>
-    <select class="form-select mb-1" name="rq2_bt_decision">
+    <select class="form-select mb-1" name="rq2_decision">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_decision_additional"
+    <textarea class="form-control mb-3" name="rq2_decision_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Time-dependent behavior</label>
-    <select class="form-select mb-1" name="rq2_bt_timed">
+    <select class="form-select mb-1" name="rq2_timed">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_timed_additional"
+    <textarea class="form-control mb-3" name="rq2_timed_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Task status</label>
-    <select class="form-select mb-1" name="rq2_bt_status">
+    <select class="form-select mb-1" name="rq2_status">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_status_additional"
+    <textarea class="form-control mb-3" name="rq2_status_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Robot-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_bt_rr">
+    <select class="form-select mb-1" name="rq2_rr">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_rr_additional"
+    <textarea class="form-control mb-3" name="rq2_rr_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Human-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_bt_hr">
+    <select class="form-select mb-1" name="rq2_hr">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_hr_additional"
+    <textarea class="form-control mb-3" name="rq2_hr_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Robot-external system interaction</label>
-    <select class="form-select mb-1" name="rq2_bt_ext">
+    <select class="form-select mb-1" name="rq2_ext">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_ext_additional"
+    <textarea class="form-control mb-3" name="rq2_ext_additional"
               placeholder="If not, why?"></textarea>
   
     <label>State saving and task resuming</label>
-    <select class="form-select mb-1" name="rq2_bt_resume">
+    <select class="form-select mb-1" name="rq2_resume">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_resume_additional"
+    <textarea class="form-control mb-3" name="rq2_resume_additional"
               placeholder="If not, why?"></textarea>
   
     <label>Explicit waiting</label>
-    <select class="form-select mb-1" name="rq2_bt_wait">
+    <select class="form-select mb-1" name="rq2_wait">
       <option></option><option>1</option><option>2</option><option>3</option>
       <option>4</option><option>5</option>
     </select>
-    <textarea class="form-control mb-3" name="rq2_bt_wait_additional"
+    <textarea class="form-control mb-3" name="rq2_wait_additional"
               placeholder="If not, why?"></textarea>
 
   </div>
   
-  
 
-  <!-- SAME STRUCTURE FOR SM, HTN, BPMN -->
-  <div class="rq2-block d-none" data-form="sm">
-    <h5>State Machines</h5>
-  
-    <label>Please rate your agreement with the following concerns:</label> <br>
-  
-    <label class="mt-2">Reactive behavior</label>
-    <select class="form-select mb-1" name="rq2_sm_reactive">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_reactive_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Decision making</label>
-    <select class="form-select mb-1" name="rq2_sm_decision">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_decision_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Time-dependent behavior</label>
-    <select class="form-select mb-1" name="rq2_sm_timed">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_timed_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Task status</label>
-    <select class="form-select mb-1" name="rq2_sm_status">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_status_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Robot-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_sm_rr">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_rr_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Human-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_sm_hr">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_hr_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Robot-external system interaction</label>
-    <select class="form-select mb-1" name="rq2_sm_ext">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_ext_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>State saving and task resuming</label>
-    <select class="form-select mb-1" name="rq2_sm_resume">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_resume_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Explicit waiting</label>
-    <select class="form-select mb-1" name="rq2_sm_wait">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_sm_wait_additional"
-              placeholder="If not, why?"></textarea>
-  
-  </div>
-  
-  
-
-  <div class="rq2-block d-none" data-form="htn">
-    <h5>HTNs</h5>
-  
-    <label>Please rate your agreement with the following concerns:</label> <br>
-  
-    <label class="mt-2">Reactive behavior</label>
-    <select class="form-select mb-1" name="rq2_htn_reactive"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_reactive_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Decision making</label>
-    <select class="form-select mb-1" name="rq2_htn_decision"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_decision_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Time-dependent behavior</label>
-    <select class="form-select mb-1" name="rq2_htn_timed"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_timed_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Task status</label>
-    <select class="form-select mb-1" name="rq2_htn_status"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_status_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Robot-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_htn_rr"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_rr_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Human-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_htn_hr"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_hr_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Robot-external system interaction</label>
-    <select class="form-select mb-1" name="rq2_htn_ext"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_ext_additional" placeholder="If not, why?"></textarea>
-  
-    <label>State saving and task resuming</label>
-    <select class="form-select mb-1" name="rq2_htn_resume"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_resume_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Explicit waiting</label>
-    <select class="form-select mb-1" name="rq2_htn_wait"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_htn_wait_additional" placeholder="If not, why?"></textarea>
-  
-  </div>
-  
-  
-
-  <div class="rq2-block d-none" data-form="bpmn">
-    <h5>BPMN</h5>
-  
-    <label>Please rate your agreement with the following concerns:</label> <br>
-  
-    <label class="mt-2">Reactive behavior</label>
-    <select class="form-select mb-1" name="rq2_bpmn_reactive"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_reactive_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Decision making</label>
-    <select class="form-select mb-1" name="rq2_bpmn_decision"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_decision_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Time-dependent behavior</label>
-    <select class="form-select mb-1" name="rq2_bpmn_timed"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_timed_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Task status</label>
-    <select class="form-select mb-1" name="rq2_bpmn_status"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_status_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Robot-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_bpmn_rr"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_rr_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Human-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_bpmn_hr"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_hr_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Robot-external system interaction</label>
-    <select class="form-select mb-1" name="rq2_bpmn_ext"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_ext_additional" placeholder="If not, why?"></textarea>
-  
-    <label>State saving and task resuming</label>
-    <select class="form-select mb-1" name="rq2_bpmn_resume"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_resume_additional" placeholder="If not, why?"></textarea>
-  
-    <label>Explicit waiting</label>
-    <select class="form-select mb-1" name="rq2_bpmn_wait"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-    <textarea class="form-control mb-3" name="rq2_bpmn_wait_additional" placeholder="If not, why?"></textarea>
-  
-  </div>
   
   
 </div>

@@ -1,52 +1,46 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+
 <div class="table-responsive">
-<table>
-  <caption>BT Control structures</caption>
-  <colgroup>
-    <col>
-    <col style="width:20%">
-    <col style="width:20%">
-    <col style="width:20%">
-    <col style="width:20%">
-  </colgroup>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Sequential</th>
-      <th>Parallel</th>
-      <th>Conditional</th>
-      <th>Loop</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- BT -->
-    <tr>
-      <td rowspan="3"><strong>BT</strong></td>
-      <td>From left to right from the Sequence or Fallback node</td>
-      <td>Parallel Node</td>
-      <td>Combination of Fallback, Sequence, and Condition Nodes</td>
-      <td>Decorator (n-repetitions)</td>
-    </tr>
-    <tr>
-<<<<<<< HEAD
-      <td>  <object data="../images/bt_seq.pdf" type="application/pdf" width="90%" height="200">
-    PDF not supported.
-  </object></td>
-      <td><img src="images/bt_par.pdf" style="width:90%;"></td>
-      <td><img src="images/bt_cond.pdf" style="width:90%;"></td>
-      <td><img src="images/bt_loop.pdf" style="width:60%;"></td>
-=======
-      <td><img src="images/bt_seq.png" style="width:90%;"></td>
-      <td><img src="images/bt_par.png" style="width:90%;"></td>
-      <td><img src="images/bt_cond.png" style="width:90%;"></td>
-      <td><img src="images/bt_loop.png" style="width:60%;"></td>
->>>>>>> afcbfa1adfd810a0d71aebeeaf173c228a099944
-    </tr>
-    <tr>
-      <td>A1 is executed before A2</td>
-      <td>A1 and A2 are executed in parallel</td>
-      <td>If C is true, then A1 is performed; if C is false, then A2 is performed</td>
-      <td>The repeat decorator executes A1 for at most n-times</td>
-    </tr>
-  </tbody>
-</table>
+  <table>
+    <caption class="text-start text-center">BT Control structures</caption>
+    <colgroup>
+      <col>
+      <col style="width:20%">
+      <col style="width:20%">
+      <col style="width:20%">
+      <col style="width:20%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Sequential</th>
+        <th>Parallel</th>
+        <th>Conditional</th>
+        <th>Loop</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- BT -->
+      <tr>
+        <td rowspan="3"><strong>BT</strong></td>
+        <td>From left to right from the Sequence or Fallback node</td>
+        <td>Parallel Node</td>
+        <td>Combination of Fallback, Sequence, and Condition Nodes</td>
+        <td>Decorator (n-repetitions)</td>
+      </tr>
+      <tr>
+        <td><img src="../images/bt_seq.png" style="width:90%;"></td>
+        <td><img src="../images/bt_par.png" style="width:90%;"></td>
+        <td><img src="../images/bt_cond.png" style="width:90%;"></td>
+        <td><img src="../images/bt_loop.png" style="width:60%;"></td>
+      </tr>
+      <tr>
+        <td>A1 is executed before A2</td>
+        <td>A1 and A2 are executed in parallel</td>
+        <td>If C is true, then A1 is performed; if C is false, then A2 is performed</td>
+        <td>The repeat decorator executes A1 for at most n-times</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

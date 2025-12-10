@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
     });
 
-    rq2Blocks.forEach(block => {
-      const f = block.dataset.form;
-      formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
-    });
+    // rq2Blocks.forEach(block => {
+    //   const f = block.dataset.form;
+    //   formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
+    // });
 
     rq3Blocks.forEach(block => {
       const f = block.dataset.form;
