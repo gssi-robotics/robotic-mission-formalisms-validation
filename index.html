@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Survey on Mission Specification Formalisms</title>
@@ -10,448 +11,560 @@
 
 <body class="container my-4">
 
-<h1 class="mb-4">Survey on Mission Specification and Execution Formalisms</h1>
+  <h1 class="mb-4">Survey on Mission Specification and Execution Formalisms</h1>
 
-<!-- INTRODUCTION -->
-<div class="mb-4 p-3 border rounded">
-  <h4>Introduction</h4>
-  <p>
-    We are a research group studying modeling formalisms for robotic mission specification 
-    and execution, including Behavior Trees (BTs), State Machines (SMs), Hierarchical Task Networks (HTNs), 
-    and Business Process Model and Notation (BPMN).
-  </p>
-  <p>
-    The purpose of this study is to gather expert insights regarding the strengths, limitations, 
-    and expected usage patterns of these formalisms. Your responses will support a comparative 
-    analysis of their expressive power, practical adoption, and suitability for different 
-    mission types and contexts.
-  </p>
-  <p>
-    Your data will be processed anonymously, stored securely, and used exclusively for academic 
-    research. Only the research team will have access to the raw data. You may withdraw from 
-    participation at any time by closing the survey before submission.
-  </p>
-  <p>
-    If you have questions or ethical concerns, please contact: 
-    <i>research@domain.com</i>.
-  </p>
-</div>
-
-
-<form id="surveyForm">
-
-<!-- GENERAL INFORMATION -->
-<div class="mb-4 p-3 border rounded">
-  <h4>General Information</h4>
-
-  <div class="mb-3">
-    <label class="form-label">Email (optional)</label>
-    <input type="email" class="form-control" name="email">
+  <!-- INTRODUCTION -->
+  <div class="mb-4 p-3 border rounded">
+    <h4>Introduction</h4>
+    <p>
+      We are a research group studying modeling formalisms for robotic mission specification
+      and execution, including Behavior Trees (BTs), State Machines (SMs), Hierarchical Task Networks (HTNs),
+      and Business Process Model and Notation (BPMN).
+    </p>
+    <p>
+      The purpose of this study is to gather expert insights regarding the strengths, limitations,
+      and expected usage patterns of these formalisms. Your responses will support a comparative
+      analysis of their expressive power, practical adoption, and suitability for different
+      mission types and contexts.
+    </p>
+    <p>
+      Your data will be processed anonymously, stored securely, and used exclusively for academic
+      research. Only the research team will have access to the raw data. You may withdraw from
+      participation at any time by closing the survey before submission.
+    </p>
+    <p>
+      If you have questions or ethical concerns, please contact:
+      <i>research@domain.com</i>.
+    </p>
   </div>
 
-  <div class="mb-3">
-    <label class="form-label">What is your professional profile?</label>
-    <select name="profile" class="form-select" required>
-      <option value="">-- select --</option>
-      <option>Researcher</option>
-      <option>PhD Student</option>
-      <option>Postdoc</option>
-      <option>Industry Professional</option>
-      <option>Robotics Engineer</option>
-      <option>Other</option>
-    </select>
-  </div>
 
-  <div class="mb-3">
-    <label class="form-label">How many years have you been working in this role?</label>
-    <input type="number" class="form-control" name="years_in_role">
-  </div>
-</div>
+  <form id="surveyForm">
 
-<!-- EXPERTISE -->
-<div class="mb-4 p-3 border rounded">
-  <h4>Expertise in Formalisms</h4>
+    <!-- GENERAL INFORMATION -->
+    <div class="mb-4 p-3 border rounded">
+      <h4>General Information</h4>
 
-  <label class="form-label">How familiar are you with Behavior Trees?</label>
-  <select class="form-select mb-2" name="bt_level" id="bt_level">
-    <option value="0">1 – Not familiar</option>
-    <option value="1">2 – Heard of it</option>
-    <option value="2">3 – Some experience</option>
-    <option value="3">4 – Use regularly</option>
-    <option value="4">5 – Expert user</option>
-  </select>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" required>
+        <label class="form-text">
+          (agree for eventual follow-up questions and to share survey results)
+        <input type="checkbox" id="consent-checkbox" class="form-check-input" checked>
+      </div>
 
-  <label class="form-label">How familiar are you with State Machines?</label>
-  <select class="form-select mb-2" name="sm_level" id="sm_level">
-    <option value="0">1 – Not familiar</option>
-    <option value="1">2 – Heard of it</option>
-    <option value="2">3 – Some experience</option>
-    <option value="3">4 – Use regularly</option>
-    <option value="4">5 – Expert user</option>
-  </select>
+      <div class="mb-3">
+        <label class="form-label">What is your professional profile?</label>
+        <select name="profile" id="profile_select" class="form-select" required>
+          <option value="">-- select --</option>
+          <option value="professor">Professor</option>
+          <option value="researcher">Researcher</option>
+          <option value="phd-s">PhD Student</option>
+          <option value="postdoc">Postdoc</option>
+          <option value="industry">Industry Professional</option>
+          <option value="roboticist">Robotics Engineer</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
 
-  <label class="form-label">How familiar are you with HTNs?</label>
-  <select class="form-select mb-2" name="htn_level" id="htn_level">
-    <option value="0">1 – Not familiar</option>
-    <option value="1">2 – Heard of it</option>
-    <option value="2">3 – Some experience</option>
-    <option value="3">4 – Use regularly</option>
-    <option value="4">5 – Expert user</option>
-  </select>
+      <div class="mb-3 d-none" id="profile_other_block">
+        <label class="form-label">Please specify your profile</label>
+        <input type="text" class="form-control" name="profile_other" placeholder="Please specify...">
+      </div>
 
-  <label class="form-label">How familiar are you with BPMN?</label>
-  <select class="form-select mb-2" name="bpmn_level" id="bpmn_level">
-    <option value="0">1 – Not familiar</option>
-    <option value="1">2 – Heard of it</option>
-    <option value="2">3 – Some experience</option>
-    <option value="3">4 – Use regularly</option>
-    <option value="4">5 – Expert user</option>
-  </select>
-
-  <button type="button" id="expertiseContinue" class="btn btn-primary mt-3">Continue</button>
-</div>
-
-
-<!-- RQ1 -->
-<div id="rq1" class="mb-4 p-3 border rounded d-none">
-  <h4>RQ1 – Control Structures and Conceptual Modelling</h4>
-
-  <div class="formalism-block d-none" data-form="bt">
-    <h5>Behavior Trees</h5>
-    <object type="text/html" data="tables/control_structures_bt.html" width="100%" height="400px"></object>
-
-    <label>Do you agree with the usage of control structures for BTs?</label>
-    <select class="form-select mb-2" name="rq1_bt_control">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change in BTs?</label>
-    <textarea class="form-control mb-2" name="rq1_bt_change"></textarea>
-
-    <label>Is there any control structure missing?</label>
-    <textarea class="form-control mb-3" name="rq1_bt_missing"></textarea>
-
-    <label>Do you agree with the modelling of concepts using BTs?</label>
-    <select class="form-select mb-2" name="rq1_bt_concepts">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_bt_concepts_change"></textarea>
-
-    <label>Is any concept missing?</label>
-    <textarea class="form-control mb-3" name="rq1_bt_concepts_missing"></textarea>
-  </div>
-
-  <div class="formalism-block d-none" data-form="sm">
-    <h5>State Machines</h5>
-    <object type="text/html" data="tables/control_structures_sm.html" width="100%" height="400px"></object>
-
-
-    <label>Do you agree with the usage of control structures?</label>
-    <select class="form-select mb-2" name="rq1_sm_control">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_sm_change"></textarea>
-
-    <label>Is there any control structure missing?</label>
-    <textarea class="form-control mb-3" name="rq1_sm_missing"></textarea>
-
-    <label>Do you agree with the modelling of concepts?</label>
-    <select class="form-select mb-2" name="rq1_sm_concepts">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_sm_concepts_change"></textarea>
-
-    <label>Is any concept missing?</label>
-    <textarea class="form-control mb-3" name="rq1_sm_concepts_missing"></textarea>
-  </div>
-
-  <div class="formalism-block d-none" data-form="htn">
-    <h5>HTNs</hh5>
-      <object type="text/html" data="tables/control_structures_htn.html" width="100%" height="400px"></object>
-
-    <label>Do you agree with the usage of control structures?</label>
-    <select class="form-select mb-2" name="rq1_htn_control">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_htn_change"></textarea>
-
-    <label>Is there any control structure missing?</label>
-    <textarea class="form-control mb-3" name="rq1_htn_missing"></textarea>
-
-    <label>Do you agree with the modelling of concepts?</label>
-    <select class="form-select mb-2" name="rq1_htn_concepts">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_htn_concepts_change"></textarea>
-
-    <label>Is any concept missing?</label>
-    <textarea class="form-control mb-3" name="rq1_htn_concepts_missing"></textarea>
-  </div>
-
-  <div class="formalism-block d-none" data-form="bpmn">
-    <h5>BPMN</h5>
-    <object type="text/html" data="tables/control_structures_bpmn.html" width="100%" height="400px"></object>
-
-
-    <label>Do you agree with the usage of control structures?</label>
-    <select class="form-select mb-2" name="rq1_bpmn_control">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_bpmn_change"></textarea>
-
-    <label>Is there any control structure missing?</label>
-    <textarea class="form-control mb-3" name="rq1_bpmn_missing"></textarea>
-
-    <label>Do you agree with the modelling of concepts?</label>
-    <select class="form-select mb-2" name="rq1_bpmn_concepts">
-      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-    </select>
-
-    <label>What would you change?</label>
-    <textarea class="form-control mb-2" name="rq1_bpmn_concepts_change"></textarea>
-
-    <label>Is any concept missing?</label>
-    <textarea class="form-control mb-3" name="rq1_bpmn_concepts_missing"></textarea>
-  </div>
-</div>
-
-<!-- RQ2 -->
-<div id="rq2" class="mb-4 p-3 border rounded d-none">
-  <h4>RQ2 – Expressiveness and Usage Concerns</h4>
-
-  <p>Please answer only for formalisms you are familiar with.</p>
-
-  <object type="text/html" data="tables/concerns.html" width="100%" height="600px"></object>
-  <!-- FORMALISM BLOCK TEMPLATE -->
-  <div class="rq2-block" data-form="rq2">
-  
-    <label>Please rate your agreement with the following concerns:</label> <br>
-  
-    <label class="mt-2">Reactive behavior</label>
-    <select class="form-select mb-1" name="rq2_reactive">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_reactive_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Decision making</label>
-    <select class="form-select mb-1" name="rq2_decision">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_decision_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Time-dependent behavior</label>
-    <select class="form-select mb-1" name="rq2_timed">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_timed_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Task status</label>
-    <select class="form-select mb-1" name="rq2_status">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_status_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Robot-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_rr">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_rr_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Human-robot interaction</label>
-    <select class="form-select mb-1" name="rq2_hr">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_hr_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Robot-external system interaction</label>
-    <select class="form-select mb-1" name="rq2_ext">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_ext_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>State saving and task resuming</label>
-    <select class="form-select mb-1" name="rq2_resume">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_resume_additional"
-              placeholder="If not, why?"></textarea>
-  
-    <label>Explicit waiting</label>
-    <select class="form-select mb-1" name="rq2_wait">
-      <option></option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option>
-    </select>
-    <textarea class="form-control mb-3" name="rq2_wait_additional"
-              placeholder="If not, why?"></textarea>
-
-  </div>
-  
-
-  
-  
-</div>
-
-<!-- RQ3 -->
-<div id="rq3" class="mb-4 p-3 border rounded d-none">
-  <h4>RQ3 – Tools and Practical Usage</h4>
-  <p>Please answer for each formalism you are familiar with (expertise ≥ 3).</p>
-
-  <!-- ================== BT ================== -->
-  <div class="rq3-block d-none" data-form="bt">
-    <h5>Behavior Trees (BT)</h5>
-    <object type="text/html" data="tables/tools_bt.html" width="100%" height="300px"></object>
-
-    <div class="mb-3">
-      <label>Are you familiar with any tools related to BTs? List them.</label>
-      <textarea class="form-control" name="rq3_bt_tools"></textarea>
+      <div class="mb-3">
+        <label class="form-label">How many years have you been working on Robotics Software Engineering?</label>
+        <input type="number" class="form-control" name="years_in_role">
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label>Do you agree with the assigned scope of the BT tools you know?</label>
-      <select class="form-select" name="rq3_bt_scope_agreement">
-        <option></option><option>1</option><option>2</option>
-        <option>3</option><option>4</option><option>5</option>
+    <!-- EXPERTISE -->
+    <div class="mb-4 p-3 border rounded">
+      <h4>Expertise in Formalisms</h4>
+
+      <p class="mb-3" style="font-style: italic;">
+        Note: you will be redirected only to the formalisms for which you assigned an expertise level of 3 or higher.
+      </p>
+            
+      <label class="form-label">How familiar are you with Behavior Trees?</label>
+      <select class="form-select mb-2" name="bt_level" id="bt_level">
+        <option value="1">1 - Not familiar</option>
+        <option value="2">2 - Heard of it</option>
+        <option value="3">3 - Some experience</option>
+        <option value="4">4 - Used many times</option>
+        <option value="5">5 - Expert user</option>
       </select>
-    </div>
 
-    <div class="mb-3">
-      <label>Are there further BT-ROS tools that are missing?</label>
-      <textarea class="form-control" name="rq3_bt_tools_missing"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you have any feedback on using BT tools?</label>
-      <textarea class="form-control" name="rq3_bt_feedback"></textarea>
-    </div>
-  </div>
-
-  <!-- ================== SM ================== -->
-  <div class="rq3-block d-none" data-form="sm">
-    <h5>State Machines (SM)</h5>
-    <object type="text/html" data="tables/tools_sm.html" width="100%" height="300px"></object>
-
-    <div class="mb-3">
-      <label>Are you familiar with any tools related to State Machines? List them.</label>
-      <textarea class="form-control" name="rq3_sm_tools"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you agree with the assigned scope of the SM tools you know?</label>
-      <select class="form-select" name="rq3_sm_scope_agreement">
-        <option></option><option>1</option><option>2</option>
-        <option>3</option><option>4</option><option>5</option>
+      <label class="form-label">How familiar are you with State Machines?</label>
+      <select class="form-select mb-2" name="sm_level" id="sm_level">
+        <option value="1">1 - Not familiar</option>
+        <option value="2">2 - Heard of it</option>
+        <option value="3">3 - Some experience</option>
+        <option value="4">4 - Used many times</option>
+        <option value="5">5 - Expert user</option>
       </select>
-    </div>
 
-    <div class="mb-3">
-      <label>Are there further SM-ROS tools that are missing?</label>
-      <textarea class="form-control" name="rq3_sm_tools_missing"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you have any feedback on using SM tools?</label>
-      <textarea class="form-control" name="rq3_sm_feedback"></textarea>
-    </div>
-  </div>
-
-  <!-- ================== HTN ================== -->
-  <div class="rq3-block d-none" data-form="htn">
-    <h5>Hierarchical Task Networks (HTN)</h5>
-    <object type="text/html" data="tables/tools_htn.html" width="100%" height="300px"></object>
-
-    <div class="mb-3">
-      <label>Are you familiar with any tools related to HTNs? List them.</label>
-      <textarea class="form-control" name="rq3_htn_tools"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you agree with the assigned scope of the HTN tools you know?</label>
-      <select class="form-select" name="rq3_htn_scope_agreement">
-        <option></option><option>1</option><option>2</option>
-        <option>3</option><option>4</option><option>5</option>
+      <label class="form-label">How familiar are you with HTNs?</label>
+      <select class="form-select mb-2" name="htn_level" id="htn_level">
+        <option value="1">1 - Not familiar</option>
+        <option value="2">2 - Heard of it</option>
+        <option value="3">3 - Some experience</option>
+        <option value="4">4 - Used many times</option>
+        <option value="5">5 - Expert user</option>
       </select>
-    </div>
 
-    <div class="mb-3">
-      <label>Are there further HTN-ROS tools that are missing?</label>
-      <textarea class="form-control" name="rq3_htn_tools_missing"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you have any feedback on using HTN tools?</label>
-      <textarea class="form-control" name="rq3_htn_feedback"></textarea>
-    </div>
-  </div>
-
-  <!-- ================== BPMN ================== -->
-  <div class="rq3-block d-none" data-form="bpmn">
-    <h5>BPMN</h5>
-    <object type="text/html" data="tables/tools_bpmn.html" width="100%" height="300px"></object>
-
-    <div class="mb-3">
-      <label>Are you familiar with any tools related to BPMN? List them.</label>
-      <textarea class="form-control" name="rq3_bpmn_tools"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label>Do you agree with the assigned scope of the BPMN tools you know?</label>
-      <select class="form-select" name="rq3_bpmn_scope_agreement">
-        <option></option><option>1</option><option>2</option>
-        <option>3</option><option>4</option><option>5</option>
+      <label class="form-label">How familiar are you with BPMN?</label>
+      <select class="form-select mb-2" name="bpmn_level" id="bpmn_level">
+        <option value="1">1 - Not familiar</option>
+        <option value="2">2 - Heard of it</option>
+        <option value="3">3 - Some experience</option>
+        <option value="4">4 - Used many times</option>
+        <option value="5">5 - Expert user</option>
       </select>
+
+      <button type="button" id="expertiseContinue" class="btn btn-primary mt-3">Continue</button>
     </div>
 
-    <div class="mb-3">
-      <label>Are there further BPMN-ROS tools that are missing?</label>
-      <textarea class="form-control" name="rq3_bpmn_tools_missing"></textarea>
+
+    <!-- RQ1 -->
+    <div id="rq1" class="mb-4 p-3 border rounded d-none">
+      <h4>RQ1 - Modeling of Control Structures and Mission Concepts</h4>
+
+      <div class="formalism-block d-none" data-form="bt">
+        <h5>Behavior Trees</h5>
+
+      <p>BRIEF DESCRIPTION HEREEE OF CONTROL STRUCTURES</p>
+
+        <object type="text/html" data="tables/control_structures_bt.html" width="100%" height="400px"></object>
+
+        <label>Do you agree with the usage of control structures for BTs?</label>
+        <select class="form-select mb-2" name="rq1_bt_control" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_bt_change"></textarea>
+
+        <label>Is there any control structure missing?</label>
+        <textarea class="form-control mb-3" name="rq1_bt_missing"></textarea>
+
+        <p>BRIEF DESCRIPTION HEREEE OF MISSION CONCEPTS</p>
+
+        <object type="text/html" data="tables/mission_concepts_bt.html" width="100%" height="200px"></object>
+
+        <label>Do you agree with the modeling of concepts using BTs?</label>
+        <select class="form-select mb-2" name="rq1_bt_concepts" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_bt_concepts_change"></textarea>
+
+        <label>Is any concept missing?</label>
+        <textarea class="form-control mb-3" name="rq1_bt_concepts_missing"></textarea>
+      </div>
+
+      <div class="formalism-block d-none" data-form="sm">
+        <h5>State Machines</h5>
+        <object type="text/html" data="tables/control_structures_sm.html" width="100%" height="400px"></object>
+
+
+        <label>Do you agree with the usage of control structures?</label>
+        <select class="form-select mb-2" name="rq1_sm_control" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_sm_change"></textarea>
+
+        <label>Is there any control structure missing?</label>
+        <textarea class="form-control mb-3" name="rq1_sm_missing"></textarea>
+
+        <object type="text/html" data="tables/mission_concepts_sm.html" width="100%" height="250px"></object>
+
+        <label>Do you agree with the modeling of concepts?</label>
+        <select class="form-select mb-2" name="rq1_sm_concepts" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_sm_concepts_change"></textarea>
+
+        <label>Is any concept missing?</label>
+        <textarea class="form-control mb-3" name="rq1_sm_concepts_missing"></textarea>
+      </div>
+
+      <div class="formalism-block d-none" data-form="htn">
+        <h5>HTNs</hh5>
+          <object type="text/html" data="tables/control_structures_htn.html" width="100%" height="400px"></object>
+
+          <label>Do you agree with the usage of control structures?</label>
+          <select class="form-select mb-2" name="rq1_htn_control" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+
+          <label>What would you change?</label>
+          <textarea class="form-control mb-2" name="rq1_htn_change"></textarea>
+
+          <label>Is there any control structure missing?</label>
+          <textarea class="form-control mb-3" name="rq1_htn_missing"></textarea>
+
+          <object type="text/html" data="tables/mission_concepts_htn.html" width="100%" height="250px"></object>
+
+          <label>Do you agree with the modeling of concepts?</label>
+          <select class="form-select mb-2" name="rq1_htn_concepts" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+
+          <label>What would you change?</label>
+          <textarea class="form-control mb-2" name="rq1_htn_concepts_change"></textarea>
+
+          <label>Is any concept missing?</label>
+          <textarea class="form-control mb-3" name="rq1_htn_concepts_missing"></textarea>
+      </div>
+
+      <div class="formalism-block d-none" data-form="bpmn">
+        <h5>BPMN</h5>
+        <object type="text/html" data="tables/control_structures_bpmn.html" width="100%" height="400px"></object>
+
+
+        <label>Do you agree with the usage of control structures?</label>
+        <select class="form-select mb-2" name="rq1_bpmn_control" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_bpmn_change"></textarea>
+
+        <label>Is there any control structure missing?</label>
+        <textarea class="form-control mb-3" name="rq1_bpmn_missing"></textarea>
+
+        <object type="text/html" data="tables/mission_concepts_bpmn.html" width="100%" height="250px"></object>
+
+        <label>Do you agree with the modeling of concepts?</label>
+        <select class="form-select mb-2" name="rq1_bpmn_concepts" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+
+        <label>What would you change?</label>
+        <textarea class="form-control mb-2" name="rq1_bpmn_concepts_change"></textarea>
+
+        <label>Is any concept missing?</label>
+        <textarea class="form-control mb-3" name="rq1_bpmn_concepts_missing"></textarea>
+      </div>
     </div>
 
-    <div class="mb-3">
-      <label>Do you have any feedback on using BPMN tools?</label>
-      <textarea class="form-control" name="rq3_bpmn_feedback"></textarea>
+    <!-- RQ2 -->
+    <div id="rq2" class="mb-4 p-3 border rounded d-none">
+      <h4>RQ2 - Expressiveness and Usage Concerns</h4>
+
+      <p>BRIEF DESCRIPTION HEREEE ...</p>
+
+      <object type="text/html" data="tables/concerns.html" width="100%" height="600px"></object>
+      <!-- FORMALISM BLOCK TEMPLATE -->
+      <div class="rq2-block" data-form="rq2">
+
+        <p style="font-style: italic;">Please answer for each formalism you are familiar with (expertise ≥ 3).</p>
+
+        <label>Please rate your agreement with the following concerns:</label> <br>
+
+        <label class="mt-2">Reactive behavior</label>
+        <select class="form-select mb-1" name="rq2_reactive" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_reactive_additional" placeholder="If not, why?"></textarea>
+
+        <label>Decision making</label>
+        <select class="form-select mb-1" name="rq2_decision" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_decision_additional" placeholder="If not, why?"></textarea>
+
+        <label>Time-dependent behavior</label>
+        <select class="form-select mb-1" name="rq2_timed" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_timed_additional" placeholder="If not, why?"></textarea>
+
+        <label>Task status</label>
+        <select class="form-select mb-1" name="rq2_status" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_status_additional" placeholder="If not, why?"></textarea>
+
+        <label>Robot-robot interaction</label>
+        <select class="form-select mb-1" name="rq2_rr" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_rr_additional" placeholder="If not, why?"></textarea>
+
+        <label>Human-robot interaction</label>
+        <select class="form-select mb-1" name="rq2_hr" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_hr_additional" placeholder="If not, why?"></textarea>
+
+        <label>Robot-external system interaction</label>
+        <select class="form-select mb-1" name="rq2_ext" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_ext_additional" placeholder="If not, why?"></textarea>
+
+        <label>State saving and task resuming</label>
+        <select class="form-select mb-1" name="rq2_resume" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_resume_additional" placeholder="If not, why?"></textarea>
+
+        <label>Explicit waiting</label>
+        <select class="form-select mb-1" name="rq2_wait" required>
+          <option value=""></option>
+          <option value="1">1 - Strongly Disagree</option>
+          <option value="2">2 - Disagree</option>
+          <option value="3">3 - Neutral</option>
+          <option value="4">4 - Agree</option>
+          <option value="5">5 - Strongly Agree</option>
+        </select>
+        <textarea class="form-control mb-3" name="rq2_wait_additional" placeholder="If not, why?"></textarea>
+
+      </div>
+
+
+
+
     </div>
-  </div>
-</div>
+
+    <!-- RQ3 -->
+    <div id="rq3" class="mb-4 p-3 border rounded d-none">
+      <h4>RQ3 - Tools and Practical Usage</h4>
+      <p>SOME CONTENT HEREE</p>
+
+      <!-- ================== BT ================== -->
+      <div class="rq3-block d-none" data-form="bt">
+        <h5>Behavior Trees (BT)</h5>
+        <object type="text/html" data="tables/tools_bt.html" width="100%" height="300px"></object>
+
+        <div class="mb-3">
+          <label>Are you familiar with any tools related to BTs? If yes, list them or write 'all'.</label>
+          <textarea class="form-control" name="rq3_bt_tools"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you agree with the assigned scope of the BT tools you know?</label>
+          <select class="form-select" name="rq3_bt_scope_agreement" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label>Are there further BT-ROS tools that are missing?</label>
+          <textarea class="form-control" name="rq3_bt_tools_missing"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you have any feedback on using the tools?</label>
+          <textarea class="form-control" name="rq3_bt_feedback"></textarea>
+        </div>
+      </div>
+
+      <!-- ================== SM ================== -->
+      <div class="rq3-block d-none" data-form="sm">
+        <h5>State Machines (SM)</h5>
+        <object type="text/html" data="tables/tools_sm.html" width="100%" height="300px"></object>
+
+        <div class="mb-3">
+          <label>Are you familiar with any tools related to State Machines? If yes, list them or write 'all'.</label>
+          <textarea class="form-control" name="rq3_sm_tools"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you agree with the assigned scope of the SM tools you know?</label>
+          <select class="form-select" name="rq3_sm_scope_agreement" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label>Are there further SM-ROS tools that are missing?</label>
+          <textarea class="form-control" name="rq3_sm_tools_missing"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you have any feedback on using the tools?</label>
+          <textarea class="form-control" name="rq3_sm_feedback"></textarea>
+        </div>
+      </div>
+
+      <!-- ================== HTN ================== -->
+      <div class="rq3-block d-none" data-form="htn">
+        <h5>Hierarchical Task Networks (HTN)</h5>
+        <object type="text/html" data="tables/tools_htn.html" width="100%" height="300px"></object>
+
+        <div class="mb-3">
+          <label>Are you familiar with any tools related to HTNs? If yes, list them or write 'all'.</label>
+          <textarea class="form-control" name="rq3_htn_tools"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you agree with the assigned scope of the HTN tools you know?</label>
+          <select class="form-select" name="rq3_htn_scope_agreement" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label>Are there further HTN-ROS tools that are missing?</label>
+          <textarea class="form-control" name="rq3_htn_tools_missing"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you have any feedback on using the tools?</label>
+          <textarea class="form-control" name="rq3_htn_feedback"></textarea>
+        </div>
+      </div>
+
+      <!-- ================== BPMN ================== -->
+      <div class="rq3-block d-none" data-form="bpmn">
+        <h5>BPMN</h5>
+        <object type="text/html" data="tables/tools_bpmn.html" width="100%" height="300px"></object>
+
+        <div class="mb-3">
+          <label>Are you familiar with any tools related to BPMN? If yes, list them or write 'all'.</label>
+          <textarea class="form-control" name="rq3_bpmn_tools"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you agree with the assigned scope of the BPMN tools you know?</label>
+          <select class="form-select" name="rq3_bpmn_scope_agreement" required>
+            <option value=""></option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label>Are there further BPMN-ROS tools that are missing?</label>
+          <textarea class="form-control" name="rq3_bpmn_tools_missing"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Do you have any feedback on using the tools?</label>
+          <textarea class="form-control" name="rq3_bpmn_feedback"></textarea>
+        </div>
+      </div>
+    </div>
 
 
-<!-- FINAL COMMENTS -->
-<div id="finalComments" class="p-3 border rounded d-none">
-  <h4>Final Comments</h4>
-  <textarea class="form-control" name="final_comments"></textarea>
-</div>
+    <!-- FINAL COMMENTS -->
+    <div id="finalComments" class="p-3 border rounded d-none">
+      <h4>Final Comments</h4>
+      <textarea class="form-control" name="final_comments"></textarea>
+    </div>
 
-<button id="submitBtn" type="submit" class="btn btn-success mt-3 d-none">Submit</button>
+    <button id="submitBtn" type="submit" class="btn btn-success mt-3 d-none">Submit</button>
 
-</form>
+  </form>
 
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
+
 </html>
