@@ -9,49 +9,90 @@ document.addEventListener("DOMContentLoaded", () => {
   const bpmn = document.getElementById("bpmn_level");
 
   const rq1 = document.getElementById("rq1");
+  const rq2 = document.getElementById("rq2");
+  const rq3 = document.getElementById("rq3");
   const finalComments = document.getElementById("finalComments");
   const submitBtn = document.getElementById("submitBtn");
 
-  const blocks = document.querySelectorAll(".formalism-block");
+  const rq1Blocks = document.querySelectorAll(".formalism-block");
+  const rq2Blocks = document.querySelectorAll(".rq2-block");
 
+  // Conditional display based on expertise >= 2 (i.e., some experience)
   document.getElementById("expertiseContinue").addEventListener("click", () => {
-    
+
     rq1.classList.remove("d-none");
+    rq2.classList.remove("d-none");
+    rq3.classList.remove("d-none");
     finalComments.classList.remove("d-none");
     submitBtn.classList.remove("d-none");
 
-    blocks.forEach(block => {
-      const f = block.getAttribute("data-form");
+    const formLevels = {
+      bt: parseInt(bt.value),
+      sm: parseInt(sm.value),
+      htn: parseInt(htn.value),
+      bpmn: parseInt(bpmn.value)
+    };
 
-      let lvl = 0;
-      if (f === "bt") lvl = parseInt(bt.value);
-      if (f === "sm") lvl = parseInt(sm.value);
-      if (f === "htn") lvl = parseInt(htn.value);
-      if (f === "bpmn") lvl = parseInt(bpmn.value);
+    rq1Blocks.forEach(block => {
+      const f = block.dataset.form;
+      formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
+    });
 
-      if (lvl >= 2) block.classList.remove("d-none");
-      else block.classList.add("d-none");
+    rq2Blocks.forEach(block => {
+      const f = block.dataset.form;
+      formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
     });
   });
 
+  // SUBMIT
   document.getElementById("surveyForm").addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    const data = {};
-    formData.forEach((value, key) => data[key] = value);
+    const payload = {};
+    formData.forEach((value, key) => payload[key] = value);
 
-    console.log("Sending JSON:", data);
+    console.log("Sending:", payload);
 
     await fetch(BACKEND_URL, {
       method: "POST",
       mode: 'no-cors',
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)
+      body: JSON.stringify(payload)
     });
 
-    alert("Thank you! Your response has been submitted.");
+    alert("Thank you! Your submission has been received.");
     e.target.reset();
   });
 });
 
+// --- CONDITIONAL REQUIRED FOR RQ2 TEXTAREAS ---
+function setupRQ2DynamicRequired() {
+  // find all RQ2 selects
+  const selects = document.querySelectorAll("select[name^='rq2_']:not([name$='expressiveness'])");
+
+  selects.forEach(select => {
+    const baseName = select.name; // e.g., rq2_bt_reactive
+    const textareaName = baseName + "_additional";
+    const textarea = document.querySelector(`textarea[name="${textareaName}"]`);
+
+    if (!textarea) return;
+
+    // When the user selects a value:
+    select.addEventListener("change", () => {
+      const value = parseInt(select.value);
+
+      if (value <= 3) {
+        textarea.required = true;
+        textarea.placeholder = "Please explain why (required)";
+        textarea.classList.add("border-danger");
+      } else {
+        textarea.required = false;
+        textarea.placeholder = "Optional";
+        textarea.classList.remove("border-danger");
+      }
+    });
+  });
+}
+
+setupRQ2DynamicRequired();
