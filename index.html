@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Survey on Mission Specification Formalisms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container my-4">
+
+<h1 class="mb-4">Survey on Formalisms for Robotic Mission Specification & Execution</h1>
+
+<!-- INTRODUCTION -->
+<div class="mb-4">
+  <h4>Introduction</h4>
+  <p>
+    We are a research group investigating modelling formalisms for robotic mission 
+    specification and execution. The goal of this study is to collect expert feedback 
+    on widely adopted formalisms (BTs, SMs, HTNs, BPMN) and evaluate their 
+    expressiveness, practical usage, tool support, and limitations.
+  </p>
+  <p>
+    Your data will be processed anonymously. Only aggregated results will be published. 
+    Only the research team will have access to the raw data. You may withdraw at any 
+    moment by closing the survey before submitting.
+  </p>
+  <p>
+    For questions or ethical concerns, contact: <i>research@domain.com</i>.
+  </p>
+</div>
+
+<form id="surveyForm">
+
+<!-- GENERAL INFORMATION -->
+<div class="mb-4 p-3 border rounded">
+  <h4>General Information</h4>
+
+  <div class="mb-3">
+    <label class="form-label">Email (optional)</label>
+    <input type="email" class="form-control" name="email">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">What is your professional profile?</label>
+    <select name="profile" class="form-select" required>
+      <option value="">-- select --</option>
+      <option>Researcher</option>
+      <option>PhD Student</option>
+      <option>Postdoc</option>
+      <option>Industry Professional</option>
+      <option>Robotics Engineer</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">How many years have you been working in this role?</label>
+    <input type="number" class="form-control" name="years_in_role" min="0">
+  </div>
+</div>
+
+<!-- EXPERTISE SECTION -->
+<div class="mb-4 p-3 border rounded">
+  <h4>Expertise</h4>
+
+  <!-- BT -->
+  <label class="form-label">How familiar are you with Behavior Trees?</label>
+  <select class="form-select mb-2" name="bt_level" id="bt_level">
+    <option value="0">1 – Not familiar</option>
+    <option value="1">2 – Heard of it</option>
+    <option value="2">3 – Some experience</option>
+    <option value="3">4 – Use regularly</option>
+    <option value="4">5 – Expert user</option>
+  </select>
+
+  <!-- SM -->
+  <label class="form-label">How familiar are you with State Machines?</label>
+  <select class="form-select mb-2" name="sm_level" id="sm_level">
+    <option value="0">1 – Not familiar</option>
+    <option value="1">2 – Heard of it</option>
+    <option value="2">3 – Some experience</option>
+    <option value="3">4 – Use regularly</option>
+    <option value="4">5 – Expert user</option>
+  </select>
+
+  <!-- HTN -->
+  <label class="form-label">How familiar are you with HTNs?</label>
+  <select class="form-select mb-2" name="htn_level" id="htn_level">
+    <option value="0">1 – Not familiar</option>
+    <option value="1">2 – Heard of it</option>
+    <option value="2">3 – Some experience</option>
+    <option value="3">4 – Use regularly</option>
+    <option value="4">5 – Expert user</option>
+  </select>
+
+  <!-- BPMN -->
+  <label class="form-label">How familiar are you with BPMN?</label>
+  <select class="form-select mb-2" name="bpmn_level" id="bpmn_level">
+    <option value="0">1 – Not familiar</option>
+    <option value="1">2 – Heard of it</option>
+    <option value="2">3 – Some experience</option>
+    <option value="3">4 – Use regularly</option>
+    <option value="4">5 – Expert user</option>
+  </select>
+
+  <button type="button" id="expertiseContinue" class="btn btn-primary mt-3">Continue</button>
+</div>
+
+<!-- RQ1 SECTION -->
+<div id="rq1" class="mb-4 p-3 border rounded d-none">
+  <h4>RQ1 – Structural and Conceptual Modelling</h4>
+
+  <!-- BT -->
+  <div class="formalism-block d-none" data-form="bt">
+    <h5>Behavior Trees</h5>
+    <label>Do you agree with the usage of control structures for BTs?</label>
+    <select class="form-select mb-2" name="rq1_bt_control">
+      <option value="">-- select --</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change in BTs?</label>
+    <textarea class="form-control mb-2" name="rq1_bt_change"></textarea>
+
+    <label>Is there any control structure missing?</label>
+    <textarea class="form-control mb-3" name="rq1_bt_missing"></textarea>
+
+    <label>Do you agree with the modelling of the concepts using BTs?</label>
+    <select class="form-select mb-2" name="rq1_bt_concepts">
+      <option value="">-- select --</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change in BT conceptual modelling?</label>
+    <textarea class="form-control mb-2" name="rq1_bt_concepts_change"></textarea>
+
+    <label>Is any concept missing?</label>
+    <textarea class="form-control mb-3" name="rq1_bt_concepts_missing"></textarea>
+  </div>
+
+  <!-- SM -->
+  <div class="formalism-block d-none" data-form="sm">
+    <h5>State Machines</h5>
+    <label>Do you agree with the usage of control structures for State Machines?</label>
+    <select class="form-select mb-2" name="rq1_sm_control">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_sm_change"></textarea>
+
+    <label>Is there any control structure missing?</label>
+    <textarea class="form-control mb-3" name="rq1_sm_missing"></textarea>
+
+    <label>Do you agree with the modelling of the concepts?</label>
+    <select class="form-select mb-2" name="rq1_sm_concepts">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_sm_concepts_change"></textarea>
+
+    <label>Is any concept missing?</label>
+    <textarea class="form-control mb-3" name="rq1_sm_concepts_missing"></textarea>
+  </div>
+
+  <!-- HTN -->
+  <div class="formalism-block d-none" data-form="htn">
+    <h5>HTNs</h5>
+    <label>Do you agree with the usage of control structures for HTNs?</label>
+    <select class="form-select mb-2" name="rq1_htn_control">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_htn_change"></textarea>
+
+    <label>Is there any control structure missing?</label>
+    <textarea class="form-control mb-3" name="rq1_htn_missing"></textarea>
+
+    <label>Do you agree with the modelling of the concepts?</label>
+    <select class="form-select mb-2" name="rq1_htn_concepts">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_htn_concepts_change"></textarea>
+
+    <label>Is any concept missing?</label>
+    <textarea class="form-control mb-3" name="rq1_htn_concepts_missing"></textarea>
+  </div>
+
+  <!-- BPMN -->
+  <div class="formalism-block d-none" data-form="bpmn">
+    <h5>BPMN</h5>
+    <label>Do you agree with the usage of control structures for BPMN?</label>
+    <select class="form-select mb-2" name="rq1_bpmn_control">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_bpmn_change"></textarea>
+
+    <label>Is there any control structure missing?</label>
+    <textarea class="form-control mb-3" name="rq1_bpmn_missing"></textarea>
+
+    <label>Do you agree with the modelling of the concepts?</label>
+    <select class="form-select mb-2" name="rq1_bpmn_concepts">
+      <option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+
+    <label>What would you change?</label>
+    <textarea class="form-control mb-2" name="rq1_bpmn_concepts_change"></textarea>
+
+    <label>Is any concept missing?</label>
+    <textarea class="form-control mb-3" name="rq1_bpmn_concepts_missing"></textarea>
+  </div>
+
+</div>
+
+<!-- FINAL COMMENTS -->
+<div id="finalComments" class="p-3 border rounded d-none">
+  <h4>Final Comments</h4>
+  <textarea class="form-control" name="final_comments"></textarea>
+</div>
+
+<button id="submitBtn" type="submit" class="btn btn-success mt-3 d-none">Submit</button>
+
+</form>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
