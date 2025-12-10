@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const rq1Blocks = document.querySelectorAll(".formalism-block");
   const rq2Blocks = document.querySelectorAll(".rq2-block");
+  const rq3Blocks = document.querySelectorAll(".rq3-block");
 
   // Conditional display based on expertise >= 2 (i.e., some experience)
   document.getElementById("expertiseContinue").addEventListener("click", () => {
@@ -41,6 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
     rq2Blocks.forEach(block => {
       const f = block.dataset.form;
       formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
+    });
+
+    rq3Blocks.forEach(block => {
+      const f = block.dataset.form;
+      if (formLevels[f] >= 3) block.classList.remove("d-none");
+      else block.classList.add("d-none");
     });
   });
 
