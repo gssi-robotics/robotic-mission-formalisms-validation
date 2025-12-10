@@ -223,8 +223,9 @@ body {
 }
 
 .tools-table caption {
-  caption-side: top;
+  caption-side: bottom;
   font-size: 0.95rem;
+  font-style: italic;
   color: #555;
   margin-bottom: 0.5rem;
 }
@@ -237,8 +238,6 @@ body {
 .tools-table th {
   text-transform: uppercase;
 }
-
-
 
 .tools-table .table-group td {
   background-color: var(--text-main);
@@ -284,6 +283,22 @@ body {
   border-bottom: 2px solid #bbb !important;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.expressivity-table caption {
+  caption-side: bottom;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.rq1-table caption {
+  caption-side: bottom;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .subsection-title {

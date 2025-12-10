@@ -103,3 +103,18 @@ function setupRQ2DynamicRequired() {
 }
 
 setupRQ2DynamicRequired();
+
+const profileSelect = document.getElementById("profile_select");
+const profileOtherBlock = document.getElementById("profile_other_block");
+const profileOtherInput = profileOtherBlock.querySelector("input");
+
+profileSelect.addEventListener("change", () => {
+  if (profileSelect.value === "other") {
+    profileOtherBlock.classList.remove("d-none");
+    profileOtherInput.required = true;
+  } else {
+    profileOtherBlock.classList.add("d-none");
+    profileOtherInput.required = false;
+    profileOtherInput.value = "";
+  }
+});

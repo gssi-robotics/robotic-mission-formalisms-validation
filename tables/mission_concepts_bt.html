@@ -1,40 +1,34 @@
-<table>
-  <caption>Mission concepts mapping to BT</caption>
-  <colgroup>
-    <col>
-    <col style="width:10%">
-    <col style="width:11%">
-    <col style="width:11%">
-    <col style="width:11%">
-    <col style="width:11%">
-    <col style="width:11%">
-    <col style="width:11%">
-  </colgroup>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 
-  <thead>
-    <tr>
-      <th></th>
-      <th>Skill</th>
-      <th>Task</th>
-      <th>Data</th>
-      <th>Communication</th>
-      <th>Event</th>
-      <th>Error</th>
-      <th>Pre/post-conditions</th>
-    </tr>
-  </thead>
+<div class="table-responsive">
 
-  <tbody>
-    <!-- BT -->
-    <tr>
-      <td><strong>BT</strong></td>
-      <td>Action Node</td>
-      <td>Sub-tree</td>
-      <td>Data inputs to action nodes through ports and blackboard storage</td>
-      <td>Rely on action implementation</td>
-      <td>Not explicitly modeled. Achievable through conditions that reactively verify if they are true or not</td>
-      <td>Not explicitly modeled. Achievable through the reactive nature</td>
-      <td>Postcondition-Precondition-Action (PPA) pattern</td>
-    </tr>
-  </tbody>
-</table>
+ <table class="table table-sm align-middle rq1-table">
+    <caption class="text-start text-center">Mission concepts mapping to BT</caption>
+
+    <thead class="table-light">
+      <tr>
+        <th>Skill</th>
+        <th>Task</th>
+        <th>Data</th>
+        <th>Communication</th>
+        <th>Event</th>
+        <th>Error</th>
+        <th>Pre/post-conditions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- BT -->
+      <tr>
+        <td>Action Node</td>
+        <td>Sub-tree</td>
+        <td>Data inputs to action nodes through ports and blackboard storage</td>
+        <td>Rely on action implementation</td>
+        <td>Not explicitly modeled. Achievable through conditions that reactively verify if they are true or not</td>
+        <td>Not explicitly modeled. Achievable through the reactive nature</td>
+        <td>Postcondition-Precondition-Action (PPA) pattern</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
