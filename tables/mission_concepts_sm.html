@@ -1,0 +1,40 @@
+<table>
+  <caption>Mission concepts mapping to SM</caption>
+  <colgroup>
+    <col>
+    <col style="width:10%">
+    <col style="width:11%">
+    <col style="width:11%">
+    <col style="width:11%">
+    <col style="width:11%">
+    <col style="width:11%">
+    <col style="width:11%">
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th></th>
+      <th>Skill</th>
+      <th>Task</th>
+      <th>Data</th>
+      <th>Communication</th>
+      <th>Event</th>
+      <th>Error</th>
+      <th>Pre/post-conditions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- SM -->
+    <tr>
+      <td><strong>SM</strong></td>
+      <td>Simple State</td>
+      <td>Composite State</td>
+      <td>Data handled inside states and global variables configuration</td>
+      <td>Rely on behavior implementation</td>
+      <td>Transitions may be associated with events, but only activate if the related state is active</td>
+      <td>A transition may represent an error, but only activates if the related state is active</td>
+      <td>Transition guards; a specialization named “Protocol Transition” supports pre- and post-conditions</td>
+    </tr>
+  </tbody>
+</table>
