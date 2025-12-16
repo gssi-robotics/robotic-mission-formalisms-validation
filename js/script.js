@@ -1,4 +1,4 @@
-// URL della tua Web App Apps Script (endpoint /exec)
+// URL google sheet endpoint
 const BACKEND_URL = "https://script.google.com/macros/s/AKfycbzbhtcC6CJhP6-IXoJysH6hbF3D1kQLJ7EaR0qdiifdcaPsDTrrfLKf7N9HphMslFVc/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
