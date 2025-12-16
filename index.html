@@ -286,7 +286,7 @@
           <option value="5">5 - Strongly Agree</option>
         </select>
 
-        <label>Would you suggest any modifications or further clarifica tion?</label>
+        <label>Would you suggest any modifications or further clarification?</label>
         <textarea class="form-control mb-2" name="rq1_htn_change"></textarea>
 
         <hr>
@@ -329,8 +329,6 @@
         </div>
 
         <h6>Control Structures</h6>
-
-        <div data-include="elements/concepts_definition.html"></div>
 
         <div data-include="tables/control_structures_bpmn.html"></div>
 
@@ -377,7 +375,7 @@
     <div id="rq2" class="mb-4 p-3 border rounded d-none">
       <h4>Part 2: Expressiveness analysis, strenghts, and weaknesses</h4>
 
-      <h6><i>What are the peculiarities and limitations of modeling missions with the formalisms</i></h6>
+      <h6><i>What are the peculiarities and limitations of modeling missions with the formalisms?</i></h6>
 
       <p>In this part we analyze:</p>
       <ul>
@@ -385,29 +383,29 @@
         <li> The main strenghts and weaknesses of the formalisms with respect to the expressiveness of the identified concerns.</li>
       </ul>
 
-      <p>In the following, we show our evaluation concerning the formalism expressiveness for each of the concerns.</p>
-      <p><u>You will be asked to evaluate the analysis we conducted only on the formalisms you selected to be more familiar with.</u> </p>
-
-      <section class="section-outline mb-4" style="font-size: 0.9rem;">
-        <p>We classified the expressiveness of the formalisms into three categories:</p>
-        <ul>
-          <li>
-            <i>Full support</i>, if the formalism provides either native constructs (i.e., elements, operators, or control structures) associated with the concern, or modeling patterns to express it, allowing its modeling to be unambiguous and consistent across the missions without requiring workarounds;
-          </li>
-          <li>
-            <i>Partial support</i>, if the formalism does not provide an explicit or dedicated construct to express the concern, but it can still be modeled indirectly through workarounds or ad hoc solutions that leverage other constructs;
-          <li>
-            <i>No support</i>, if the formalism can not express the concern, neither directly nor through workarounds, hence requiring the realization of such concern using external mechanisms or by realizing it at a different abstraction level.
-          </li>
-        </ul>
-      </section>
-
-      <div data-include="tables/concerns.html"></div>
-
       <!-- FORMALISM BLOCK TEMPLATE -->
-      <div class="rq2-block" data-form="rq2">
+      <div class="rq2-expressivity-block" data-form="rq2">
+        <h5>Expressiveness analysis</h5>
 
-        <p style="font-style: italic;">Please answer for each formalism you are familiar with (expertise ≥ 3).</p>
+        <section class="section-outline mb-4" style="font-size: 0.9rem;">
+          <p>We classified the expressiveness of the formalisms into three categories:</p>
+          <ul class="list-unstyled">
+            <li>
+              <i>Full support</i> (<i class="bi bi-circle-fill"></i>), if the formalism provides either native constructs (i.e., elements, operators, or control structures) associated with the concern, or modeling patterns to express it, allowing its modeling to be unambiguous and consistent across the missions without requiring workarounds;
+            </li>
+            <li>
+              <i>Partial support</i> (<i class="bi bi-circle-half"></i>), if the formalism does not provide an explicit or dedicated construct to express the concern, but it can still be modeled indirectly through workarounds or ad hoc solutions that leverage other constructs;
+            <li>
+              <i>No support</i> (<i class="bi bi-circle"></i>), if the formalism can not express the concern, neither directly nor through workarounds, hence requiring the realization of such concern using external mechanisms or by realizing it at a different abstraction level.
+            </li>
+          </ul>
+        </section>
+
+        <p>The following table reports our evaluation on the support each formalism offers to the concerns. <i class="bi bi-circle-fill"></i> means full support, <i class="bi bi-circle-half"></i> means partial support, <i class="bi bi-circle"></i> means no support. Click on the  <i class="bi bi-info-circle-fill"></i> icon to see a brief description of each concern.</p>
+
+        <div data-include="tables/concerns.html"></div>
+
+        <p><em><strong>Please answer to the following questions only considering the formalisms you are more familiar with (expertise ≥ 3).</strong></em></p>
 
         <label>Please rate your agreement with formalisms expressivity:</label> <br>
 
@@ -512,96 +510,94 @@
 
       </div>
 
-      <div data-include="tables/pro_cons.html"></div>
+      <div class="rq2-block d-none" data-form="bt">
+        <h5>BTs strengths &amp; weaknesses</h5>
+        <div data-include="tables/pro_cons_bt.html"></div>
 
-      <div class="mb-3">
-        <label>Do you agree with the strenghts and weaknesses of BTs?</label>
-        <select class="form-select" name="rq3_bt_pro_cons_agreement" required>
-          <option value="" selected disabled>Select an option</option>
-          <option value="1">1 - Strongly Disagree</option>
-          <option value="2">2 - Disagree</option>
-          <option value="3">3 - Neutral</option>
-          <option value="4">4 - Agree</option>
-          <option value="5">5 - Strongly Agree</option>
-        </select>
+          <div class="mb-3">
+          <label>Do you agree with the identified strenghts and weaknesses of BTs?</label>
+          <select class="form-select mb-1" name="rq3_bt_pro_cons_agreement" required>
+            <option value="" selected disabled>Select an option</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+          <textarea class="form-control mb-3" name="rq3_bt_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <textarea class="form-control" name="rq3_bt_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+      <div class="rq2-block d-none" data-form="sm">
+        <h5>SMs strengths &amp; weaknesses</h5>
+        <div data-include="tables/pro_cons_sm.html"></div>  
+        <div class="mb-3">
+          <label>Do you agree with the identified strenghts and weaknesses of SMs?</label>
+          <select class="form-select mb-1" name="rq3_sm_pro_cons_agreement" required>
+            <option value="" selected disabled>Select an option</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+          <textarea class="form-control mb-3" name="rq3_sm_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label>Do you agree with the strenghts and weaknesses of SMs?</label>
-        <select class="form-select" name="rq3_sm_pro_cons_agreement" required>
-          <option value="" selected disabled>Select an option</option>
-          <option value="1">1 - Strongly Disagree</option>
-          <option value="2">2 - Disagree</option>
-          <option value="3">3 - Neutral</option>
-          <option value="4">4 - Agree</option>
-          <option value="5">5 - Strongly Agree</option>
-        </select>
-      </div>
+      <div class="rq2-block d-none" data-form="htn">
+        <h5>HTNs strengths &amp; weaknesses</h5>
+        <div data-include="tables/pro_cons_htn.html"></div>  
+        <div class="mb-3">
+          <label>Do you agree with the identified strenghts and weaknesses of HTNs?</label>
+          <select class="form-select mb-1" name="rq3_htn_pro_cons_agreement" required>
+            <option value="" selected disabled>Select an option</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+          <textarea class="form-control mb-3" name="rq3_htn_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+        </div>
 
-      <div class="mb-3">
-        <textarea class="form-control" name="rq3_sm_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
       </div>
-
-      <div class="mb-3">
-        <label>Do you agree with the strenghts and weaknesses of HTNs?</label>
-        <select class="form-select" name="rq3_htn_pro_cons_agreement" required>
-          <option value="" selected disabled>Select an option</option>
-          <option value="1">1 - Strongly Disagree</option>
-          <option value="2">2 - Disagree</option>
-          <option value="3">3 - Neutral</option>
-          <option value="4">4 - Agree</option>
-          <option value="5">5 - Strongly Agree</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <textarea class="form-control" name="rq3_htn_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label>Do you agree with the strenghts and weaknesses of BPMN?</label>
-        <select class="form-select" name="rq3_bpmn_pro_cons_agreement" required>
-          <option value="" selected disabled>Select an option</option>
-          <option value="1">1 - Strongly Disagree</option>
-          <option value="2">2 - Disagree</option>
-          <option value="3">3 - Neutral</option>
-          <option value="4">4 - Agree</option>
-          <option value="5">5 - Strongly Agree</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <textarea class="form-control" name="rq3_bpmn_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+      <div class="rq2-block d-none" data-form="bpmn">
+        <h5>BPMN strengths &amp; weaknesses</h5>
+        <div data-include="tables/pro_cons_bpmn.html"></div>  
+        <div class="mb-3">
+          <label>Do you agree with the identified strenghts and weaknesses of BPMN?</label>
+          <select class="form-select mb-1" name="rq3_bpmn_pro_cons_agreement" required>
+            <option value="" selected disabled>Select an option</option>
+            <option value="1">1 - Strongly Disagree</option>
+            <option value="2">2 - Disagree</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4 - Agree</option>
+            <option value="5">5 - Strongly Agree</option>
+          </select>
+          <textarea class="form-control mb-3" name="rq3_bpmn_pro_cons_change" placeholder="If you do not agree, please explain why"></textarea>
+        </div>
       </div>
 
     </div>
 
     <!-- RQ3 -->
     <div id="rq3" class="mb-4 p-3 border rounded d-none">
-      <h4>RQ3 - Tools Analysis</h4>
-      <p>This research question investigates the ecosystem of tools supporting each formalism. The analysis examines
-        whether tools provide
-        modeling, execution, monitoring, debugging, or planning functionalities.</p>
-        <p class="mb-3" style="font-style: italic;">
-          Note: we considered only actively maintained tools.
-        </p>
-      <section class="section-outline mb-4">
-        <p style="font-size: 0.9rem;"> <i>Modeling</i> refers to graphical or structured interfaces for creating and
-          visualizing mission specifications. <br>
-          <i>Execution</i> denotes a tool’s ability to interpret and run a model, either standalone or
-          within ROS. <br>
-          <i>Monitoring</i> concerns the provision of real-time information on mission status during
-          execution. <br>
-          <i>Debugging</i> supports diagnosing undesired behaviors through trace visualization, state
-          inspection, and event logging. <br>
-          <i>Planning</i> refers to the automatic generation of task decompositions or
-          action sequences.
-        </p>
-      </section>
+      <h4>Part 3: Supporting tools Analysis</h4>
+      <!-- <h6><i>What tools are available to support the formalisms in ROS-based robotic mission development?</i></h6> -->
+       <h6><i>Which and to what extent publicly available tools support the formalisms?</i></h6>
+
+      <p>In this part we analyze the ecosystem of tools supporting each formalism. The analysis examines whether there are tools providing modeling, execution, monitoring, debugging, or planning functionalities for the formalisms. We only considered actively mantianed tools.</p>
+
+      <section class="section-outline mb-4" style="font-size: 0.9rem;">
+        <ul class="list-unstyled">
+          <li><i>Modeling</i> refers to graphical or structured interfaces for creating and visualizing mission specifications.</li>
+          <li><i>Execution</i> denotes a tool’s ability to interpret and run a model, either standalone or within ROS.</li>
+          <li><i>Monitoring</i> concerns the provision of real-time information on mission status during execution.</li>
+          <li><i>Debugging</i> supports diagnosing undesired behaviors through trace visualization, state inspection, and event logging.</li>
+          <li><i>Planning</i> refers to the automatic generation of task decompositions or action sequences.</li>
+        </ul>
+        </section>
       </p>
 
       <!-- ================== BT ================== -->

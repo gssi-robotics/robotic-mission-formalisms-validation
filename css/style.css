@@ -124,6 +124,30 @@ body {
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
+.rq2-block {
+  background: #ffffff84;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.rq2-expressivity-block {
+  background: #ffffff84;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.rq3-block {
+  background: #ffffff84;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
 .rq{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-transform: uppercase;
@@ -385,4 +409,17 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+/* Adaptive popover styling */
+.popover .popover-body .adaptive-popover-content-wrapper {
+  display: inline-block;
+  text-align: left;
+  max-width: 90vw;
+}
+
+.popover .popover-body .adaptive-popover-content-wrapper img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

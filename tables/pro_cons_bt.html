@@ -1,0 +1,41 @@
+<div class="table-responsive">
+
+  <table class="table table-bordered table-sm">
+    <thead class="table-light text-center">
+      <tr>
+        <th>Strengths</th>
+        <th>Weaknesses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Easily express reactive behavior when the robot has to continuously react to changing conditions.</li>
+            <li>Clear task status semantics, making progress and failure handling a first-class concern.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>The semantics <em>Failure</em> is overloaded, requiring additional disambiguation through ad hoc nodes.
+            </li>
+            <li>Difficult to trace the origin of failures returned by deeper nodes without explicit checking.</li>
+            <li>No standard way for expressing waiting, temporal constraints, and interactions, which must be manually
+              implemented.</li>
+            <li>The use of nodes with memory for tracking mission execution state hinders reactivity by limiting
+              reevaluation.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<p>
+  BT's major strenght concerns the expression of the reactive behavior, thanks to the tick-based execution strategy that allows the continuous evaluation of the whole tree. This makes the evaluation of mission-level conditions and the monitoring of events easy to specify within the model thanks to the natural modularity obtained through the tree-based structure.
+  <br>
+  The <i>Success</i>, <i>Failure</i>, or <i>Running</i> result returned by all the nodes after each tick allow the continous evaluation and control of the mission execution status. However, the <i>Failure</i> state's semantic results overloaded since it is returned by both action and condition nodes for two possibly different reasons: for action nodes, it is usually associated with failures in the action being executed, while for condition nodes it is associated to a condition that is currently not met. This overloading requires disambiguation, so to avoid the execution of unintended behavior. Moreover, tracking the origin of the failures originating from descendant nodes (as in the example just discussed) require explicit checking.
+  <br>
+  BT lacks dedicated constructs for temporal-related behavior and interactions with other robots, systems, and humans. They have to be manually implemented within the action nodes.
+</p>

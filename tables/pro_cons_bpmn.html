@@ -1,0 +1,43 @@
+<div class="table-responsive">
+
+  <table class="table table-bordered table-sm">
+    <thead class="table-light text-center">
+      <tr>
+        <th>Strengths</th>
+        <th>Weaknesses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Provides a rich and structured notation explicitly supporting diverse event types and roles for
+              multi-agent missions.</li>
+            <li>Decision-making logic is easy to model through its process-oriented structure.</li>
+            <li>Rich event and error handling makes it expressive for time-dependent behavior, error-handling, and
+              waiting.</li>
+            <li>Explicitly models humans, external systems, and robot–robot/human interactions.</li>
+            <li>Explicitly defines agents responsible for executing tasks and their communication.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>No native support for specifying task or mission resuming after interruption.</li>
+            <li>Not optimal for reactions to highly frequent events.</li>
+            <li>Can become complex for detailed or extended robotic missions.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<p>
+  BPMN provides the richest expressivity among the considered formalisms, thanks to its comprehensive standard notation, which enables many mission-relevant concepts to be modeled explicitly.
+  <br>
+  Communication can be represented through message and signal events, while the variety of task types allows the specification of interactions with humans, robots, and external systems. Decision-making and control logic are naturally expressed through gateways.
+  <br>
+  However, BPMN offers limited support for resuming tasks after interruption: once a token leaves an activity, its execution state is lost, requiring the activity to restart. Consequently, reacting to frequent events or modeling fine-grained robotic missions often leads to large and complex diagrams. For instance, continuous condition monitoring (e.g., battery level) can be modeled with event subprocesses, but their execution typically overrides the main flow unless the engine provides specialized handling. Alternatively, one may attach boundary events to each task or add further gateways, both of which increase model complexity.
+</p>

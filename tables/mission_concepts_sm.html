@@ -24,19 +24,19 @@
       </tr>
       <tr>
         <td><strong>Communication</strong></td>
-        <td>Rely on behavior implementation</td>
+        <td>Not explicitly modeled. It relies on the implementation of states behavior</td>
       </tr>
       <tr>
         <td><strong>Event</strong></td>
-        <td>Transitions may be associated with events, but only activate if the related state is active</td>
+        <td>Transitions may be associated with events, but they only activate if the related state is currently active</td>
       </tr>
       <tr>
         <td><strong>Error</strong></td>
-        <td>A transition may represent an error, but only activates if the related state is active</td>
+        <td>A transition may represent an error, but it only activates if the related state is currently active</td>
       </tr>
       <tr>
         <td><strong>Pre/post-conditions</strong></td>
-        <td>Transition guards; a specialization named "Protocol Transition" supports pre- and post-conditions</td>
+        <td>Modeled through transition guards; a specialization named "Protocol Transition" supports pre- and post-conditions</td>
       </tr>
     </tbody>
   </table>

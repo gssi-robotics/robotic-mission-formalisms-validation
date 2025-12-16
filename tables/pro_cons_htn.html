@@ -1,0 +1,38 @@
+<div class="table-responsive">
+
+  <table class="table table-bordered table-sm">
+    <thead class="table-light text-center">
+      <tr>
+        <th>Strengths</th>
+        <th>Weaknesses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Provides support for decision making through runtime planning by decomposing tasks using methods.</li>
+            <li>Natively allows explicit definition of pre- and post-conditions.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>No expressiveness for reactive behavior, which must be handled outside the mission model.</li>
+            <li>No explicit expression of static choices, always delegated to planning.</li>
+            <li>No task-status tracking, delegated entirely to the HTN executor.</li>
+            <li>Interactions, waiting, and time-driven behaviors are not supported and must be manually implemented.
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<p>
+  HTNs have the strength of explicitly expressing pre- and post-conditions, which provide the support for binding abstract tasks to multiple methods that can realize decision-making through runtime planning. The task decomposition obtained by refining abstract tasks into methods naturally realizes a modular structure. As a drawback, choices can not be embedded explicitly into the model, since planning is always required.
+  <br>
+  No support for reactiveness, and no mechanisms to handle task status is provided within the model definition, relegating this feature to both external documentation/modeling and behavior implementations.
+</p>

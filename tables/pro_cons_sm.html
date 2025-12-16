@@ -1,0 +1,42 @@
+<div class="table-responsive">
+
+  <table class="table table-bordered table-sm">
+    <thead class="table-light text-center">
+      <tr>
+        <th>Strengths</th>
+        <th>Weaknesses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Natively models event-driven behavior defining how the system should react to events and transition
+              between states.</li>
+            <li>Easily handles task status as distinct states and via transitions outgoing from them.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Handling errors and events requires outgoing transitions from all potentially affected states, requiring
+              explicit transitions for system-level events.</li>
+            <li>Task resuming requires ad hoc selector states and transitions.</li>
+            <li>Interactions, messaging, and coordination with robots, systems, or humans must be manually realized.
+            </li>
+            <li>Time-dependent behaviors require manual integration of timers.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<p>
+  SMs employs transitions from states to explicitly distinguish between different events and different outcomes of the actions executed by the robots within each state. This allows the mission model to unambiguously distinguish different events and error causes, and to explicitly redirect the flow towards the states modeling their handling.
+  <br>
+  As a drawback, handling events that can potentially affect every state require outgoing transitions from each of them, hence making the model more complex. Organizing states hierarchically allows reducing such complexity. Similarly, for resuming a temporarily interrupted mission, transitions towards all the possible interrupted states have to be modeled. This also requires the specification of ad hoc <i>selector</i> states, hence contributing to the model complexity.
+  <br>
+  The handling of temporal-related behaviors has to be manually realized within the single state logic, as well as the interaction with other robots, systems, and humans.
+</p>
