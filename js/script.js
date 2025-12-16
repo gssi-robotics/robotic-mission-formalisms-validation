@@ -1,5 +1,5 @@
 // URL google sheet endpoint
-const BACKEND_URL = "https://script.google.com/macros/s/AKfycbzbhtcC6CJhP6-IXoJysH6hbF3D1kQLJ7EaR0qdiifdcaPsDTrrfLKf7N9HphMslFVc/exec";
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbw_JA-vmqfFz-JIHEpjRcoUba4xnfKQ-ulEQV7NCqWAdeuWNez6V7Cm2QOYk64xDkm2/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rq3 = document.getElementById("rq3");
   const finalComments = document.getElementById("finalComments");
   const submitBtn = document.getElementById("submitBtn");
+  const noteLabel = document.getElementById("noteLabel");
 
   const rq1Blocks = document.querySelectorAll(".formalism-block");
   const rq2Blocks = document.querySelectorAll(".rq2-block");
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     rq3.classList.remove("d-none");
     finalComments.classList.remove("d-none");
     submitBtn.classList.remove("d-none");
+    noteLabel.classList.remove("d-none");
 
     const formLevels = {
       bt: parseInt(bt.value),
@@ -56,8 +58,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rq1Blocks.forEach(block => {
       const f = block.dataset.form;
-      formLevels[f] >= 3 ? block.classList.remove("d-none") : block.classList.add("d-none");
+      if (formLevels[f] >= 3) block.classList.remove("d-none");
+      else block.classList.add("d-none");
     });
+
+    rq1Blocks.forEach(block => {
+      const f = block.dataset.form;
+      const visible = (formLevels[f] >= 3);
+    
+      toggleRequiredInBlock(block, visible);
+    });
+
+    rq3Blocks.forEach(block => {
+      const f = block.dataset.form;
+      const visible = (formLevels[f] >= 3);
+    
+      if (visible) block.classList.remove("d-none");
+      else block.classList.add("d-none");
+    
+      toggleRequiredInBlock(block, visible);
+    });
+
+    rq2Blocks.forEach(block => {
+      const f = block.dataset.form;
+      const visible = (formLevels[f] >= 3);
+    
+      if (visible) block.classList.remove("d-none");
+      else block.classList.add("d-none");
+    
+      toggleRequiredInBlock(block, visible);
+    });
+    
+    
 
     // rq2Blocks.forEach(block => {
     //   const f = block.dataset.form;
@@ -138,3 +170,76 @@ profileSelect.addEventListener("change", () => {
     profileOtherInput.value = "";
   }
 });
+
+
+function toggleRequiredInBlock(block, enable) {
+  const fields = block.querySelectorAll("[required]");
+  fields.forEach(field => {
+    if (enable) {
+      field.setAttribute("required", "required");
+    } else {
+      field.removeAttribute("required");
+    }
+  });
+}
+
+// Handles the conditional required textareas for RQs
+function setupConditionalRequired() {
+  const selects = document.querySelectorAll(
+    "select[name$='_concepts'], select[name$='_control'], select[name$='_agreement']"
+  );
+
+  selects.forEach(select => {
+    const base = select.name;
+
+    let textareaChangeName = null;
+    let textareaMissingName = null;
+
+    if (base.endsWith("_concepts")) {
+      textareaChangeName = base + "_change";
+      textareaMissingName = base + "_missing"; 
+    }
+
+    else if (base.endsWith("_control")) {
+      const prefix = base.replace("_control", "");
+      textareaChangeName = prefix + "_change";
+    }
+
+    else if (base.endsWith("_agreement")) {
+      const prefix = base.replace("_agreement", "");
+      textareaChangeName = prefix + "_change"; // e.g. rq3_sm_pro_cons_change
+    }
+
+    const textareaChange = textareaChangeName
+      ? document.querySelector(`textarea[name="${textareaChangeName}"]`)
+      : null;
+
+    const textareaMissing = textareaMissingName
+      ? document.querySelector(`textarea[name="${textareaMissingName}"]`)
+      : null;
+
+    select.addEventListener("change", () => {
+      const v = parseInt(select.value);
+      const require = v <= 3;
+
+      if (textareaChange) {
+        textareaChange.required = require;
+        textareaChange.placeholder = require
+          ? "Please explain why (required if ≤ 3)"
+          : "Optional";
+        textareaChange.classList.toggle("border-danger", require);
+      }
+
+      if (textareaMissing) {
+        textareaMissing.required = require;
+        textareaMissing.placeholder = require
+          ? "Please explain why (required if ≤ 3)"
+          : "Optional";
+        textareaMissing.classList.toggle("border-danger", require);
+      }
+    });
+  });
+}
+
+
+setupConditionalRequired();
