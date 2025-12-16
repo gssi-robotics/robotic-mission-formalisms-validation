@@ -1,8 +1,5 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
-
 <div class="table-responsive">
-  <table class="table table-sm align-middle rq1-table">
+  <table class="table table-bordered table-sm align-middle rq1-table">
     <caption class="text-start text-center">HTN control structures</caption>
     <thead class="table-light">
     <tr>
@@ -29,8 +26,8 @@
     <tr>
       <td>T1 is executed before T2</td>
       <td>T1 and T2 are executed in any order, in parallel if possible</td>
-      <td>If m1's preconditions hold, T2 is executed; if m2's preconditions hold, T3 is executed</td>
-      <td>As long as m1's preconditions hold, T1 is executed</td>
+      <td>If m1's preconditions (p1) hold, T2 is executed; if m2's preconditions (p2) hold, T3 is executed</td>
+      <td>As long as loop preconditions (p1) hold, T2 is executed and then T1 recursively runs the loop; when p1 does not hold, m2 realizes the loop exit</td>
     </tr>
   </tbody>
 </table>

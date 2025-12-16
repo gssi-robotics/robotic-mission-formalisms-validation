@@ -21,6 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Conditional display based on expertise >= 3 (i.e., some experience)
   document.getElementById("expertiseContinue").addEventListener("click", () => {
 
+    const expGroup = document.getElementById("expertiseSelection");
+    const genInfoGroup = document.getElementById("generalInformation");
+    const expFields = expGroup ? expGroup.querySelectorAll("select[required], input[required]") : [];
+    const genFields = genInfoGroup ? genInfoGroup.querySelectorAll("select[required], input[required]") : [];
+    const fields = Array.prototype.slice.call(expFields).concat(Array.prototype.slice.call(genFields));
+    let valid = true;
+
+    fields.forEach(field => {
+        if (!field.value) {
+            valid = false;
+            field.classList.add("is-invalid");   // evidenzia errore
+        } else {
+            field.classList.remove("is-invalid");
+        }
+    });
+    if (!valid) {
+        // alert("Please fill in all required fields before continuing.");
+        return;
+    }
+
     rq1.classList.remove("d-none");
     rq2.classList.remove("d-none");
     rq3.classList.remove("d-none");

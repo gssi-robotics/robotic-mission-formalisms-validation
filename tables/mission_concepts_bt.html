@@ -1,7 +1,54 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
-
 <div class="table-responsive">
+  <table class="table table-bordered table-sm expressivity-table">
+    <caption class="text-start text-center">Mission concepts mapping to BT</caption>
+    <thead class="table-light">
+      <tr>
+        <th>Mission concept</th>
+        <th>Mapping to BT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Skill</strong></td>
+        <td>Action Node</td>
+      </tr>
+      <tr>
+        <td><strong>Task</strong></td>
+        <td>Sub-tree</td>
+      </tr>
+      <tr>
+        <td><strong>Data</strong></td>
+        <td>Data inputs to action nodes through ports and blackboard storage</td>
+      </tr>
+      <tr>
+        <td><strong>Communication</strong></td>
+        <td>Rely on action implementation</td>
+      </tr>
+      <tr>
+        <td><strong>Event</strong></td>
+        <td>Not explicitly modeled. Achievable through conditions that reactively verify if they are true or not</td>
+      </tr>
+      <tr>
+        <td><strong>Error</strong></td>
+        <td>Not explicitly modeled. Achievable through the reactive nature</td>
+      </tr>
+      <tr>
+        <td><strong>Pre/post-conditions</strong></td>
+        <td>Not explicitly modeled. Achievable through the Postcondition-Precondition-Action (PPA) pattern
+          <a id="ppa-info-popover" tabindex="0" type="button" class="btn btn-link p-0 ms-1 align-baseline" aria-label="PPA pattern info"
+            data-bs-toggle="popover" data-bs-html="true" data-bs-trigger="focus" title="PPA pattern info"
+            data-bs-content='<img src="../images/ppa.png" alt="PPA pattern" class="popover-img"><p>Example of the Postcondition-Precondition-Action (PPA) pattern.</p><p>The post-condition <i>C</i> is specified as <i>condition</i> node placed as the first child of a <i>fallback</i> node, whereas possible actions to reach <i>C</i> are specified within sibling nodes; pre-conditions are specified as <i>condition</i> nodes placed as the left sibling of an <i>action</i> node with a <i>sequence</i> node as a parent (either actions <i>A1</i> or <i>A2</i> can be executed to reach <i>C</i>, with pre-conditions <i>C1</i> or <i>C2</i>, respectively).</p>'>
+            <i class="bi bi-info-circle-fill"></i>
+        </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Old table -->
+<!-- <div class="table-responsive">
 
  <table class="table table-sm align-middle rq1-table">
     <caption class="text-start text-center">Mission concepts mapping to BT</caption>
@@ -19,7 +66,6 @@
     </thead>
 
     <tbody>
-      <!-- BT -->
       <tr>
         <td>Action Node</td>
         <td>Sub-tree</td>
@@ -31,4 +77,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->

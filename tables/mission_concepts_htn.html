@@ -1,7 +1,50 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
-
 <div class="table-responsive">
+  <table class="table table-bordered table-sm align-middle expressivity-table">
+    <caption class="text-start text-center">Mission concepts mapping to HTN</caption>
+
+    <thead class="table-light">
+      <tr>
+        <th>Mission concept</th>
+        <th>Mapping to HTN</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><strong>Skill</strong></td>
+        <td>Elementary Task</td>
+      </tr>
+      <tr>
+        <td><strong>Task</strong></td>
+        <td>Abstract Task*</td>
+      </tr>
+      <tr>
+        <td><strong>Data</strong></td>
+        <td>In task header (e.g., travel(d)), or as parameters in the task definition</td>
+      </tr>
+      <tr>
+        <td><strong>Communication</strong></td>
+        <td>Rely on elementary task implementation</td>
+      </tr>
+      <tr>
+        <td><strong>Event</strong></td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td><strong>Error</strong></td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td><strong>Pre/post-conditions</strong></td>
+        <td>Defined in the task and method definition</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Old table -->
+<!-- <div class="table-responsive">
 
   <table class="table table-bordered table-sm align-middle expressivity-table">
     <caption class="text-start text-center">Mission concepts mapping to HTN</caption>
@@ -19,7 +62,6 @@
     </thead>
 
     <tbody>
-      <!-- HTN -->
       <tr>
         <td>Elementary Task</td>
         <td>Abstract Task*</td>
@@ -31,4 +73,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->

@@ -279,7 +279,7 @@ body {
   text-decoration: underline;
 }
 
-.expressivity-table td {
+/* .expressivity-table td {
   text-align: center;
 }
 
@@ -305,7 +305,7 @@ body {
   border-bottom: 2px solid #bbb !important;
   text-transform: uppercase;
   font-weight: 600;
-}
+} */
 
 .expressivity-table caption {
   caption-side: bottom;

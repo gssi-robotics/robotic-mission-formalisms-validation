@@ -1,12 +1,8 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
-
 <div class="table-responsive">
 
   <table class="table table-bordered table-sm align-middle expressivity-table">
 
-    <caption class="text-start text-center">Summary of model expressivity for mission concerns (● full support; ◐
-      partial support; ○ no support)</caption>
+    <caption class="text-start text-center">Summary of model expressivity for mission concerns</caption>
 
     <thead class="table-light">
       <tr>
@@ -21,90 +17,90 @@
 
     <tbody>
       <tr>
-        <td>Reactive behavior</td>
-        <td class="full">●</td>
-        <td class="full">●</td>
-        <td class="empty">○</td>
-        <td class="full">●</td>
+        <td><strong>Reactive behavior</strong></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT and SM leverage their reactive nature and event-handling structures. BPMN features boundary events and
           event sub-processes. HTN does not support it.</td>
       </tr>
 
       <tr>
-        <td>Decision making</td>
-        <td class="full">●</td>
-        <td class="full">●</td>
-        <td class="full">●</td>
-        <td class="full">●</td>
+        <td><strong>Decision making</strong></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>SM and BPMN feature conditional control structures for runtime decision-making. In BTs this is realized by
           combining fallbacks and sequence nodes. HTN relies on planning according to pre- and post-conditions.</td>
       </tr>
 
       <tr>
-        <td>Time-dependent behavior</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="empty">○</td>
-        <td class="full">●</td>
+        <td><strong>Time-dependent behavior</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>In BT and SM it must be realized by manually implementing the control of timing through condition nodes and
           state implementations. BPMN features timer events attached to tasks. HTN does not support it.</td>
       </tr>
 
       <tr>
-        <td>Task status</td>
-        <td class="full">●</td>
-        <td class="full">●</td>
-        <td class="empty">○</td>
-        <td class="full">●</td>
+        <td><strong>Task status</strong></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
+        <td><i class="bi bi-circle"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT, SM, and BPMN support it through the tick return value, the events outgoing from a state, and the task
           activity lifecycle, respectively. HTN does not support it.</td>
       </tr>
 
       <tr>
-        <td>Robot-robot interaction</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="full">●</td>
+        <td><strong>Robot-robot interaction</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT, SM, HTN rely on the task implementation. BPMN has dedicated structures, i.e., message and signal events
           for communication.</td>
       </tr>
 
       <tr>
-        <td>Human-robot interaction</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="full">●</td>
+        <td><strong>Human-robot interaction</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT, SM, HTN rely on the task implementation. BPMN has a dedicated task type (user task).</td>
       </tr>
 
       <tr>
-        <td>Robot-external system interaction</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="full">●</td>
+        <td><strong>Robot-external system interaction</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT, SM, HTN rely on task implementation. BPMN features service tasks, send/receive tasks, and message
           events.</td>
       </tr>
 
       <tr>
-        <td>State saving and task resuming</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="empty">○</td>
-        <td class="empty">○</td>
+        <td><strong>State saving and task resuming</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle"></i></td>
+        <td><i class="bi bi-circle"></i></td>
         <td>BT relies on conditions checked at each tick and shared knowledge (blackboards). SM requires ad hoc states
           and events to pause and resume. HTN and BPMN do not support it.</td>
       </tr>
 
       <tr>
-        <td>Explicit waiting</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="half">◐</td>
-        <td class="full">●</td>
+        <td><strong>Explicit waiting</strong></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-half"></i></td>
+        <td><i class="bi bi-circle-fill"></i></td>
         <td>BT, SM, and HTN rely on ad hoc implementation of actions, states, or tasks. BPMN supports timer events.</td>
       </tr>
     </tbody>
