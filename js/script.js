@@ -117,6 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // SUBMIT
   document.getElementById("surveyForm").addEventListener("submit", async (e) => {
     e.preventDefault();
+    const submitBtnEl = document.getElementById("submitBtn");
+    const submitSpinner = document.getElementById("submitSpinner");
+    const submitIcon = document.getElementById("submitIcon");
+    const submitStatus = document.getElementById("submitStatus");
+    const submitLabel = document.getElementById("submitLabel");
+    const thankYouMsg = document.getElementById("thankYouMsg");
 
     const formData = new FormData(e.target);
     const payload = {};
@@ -124,15 +130,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Sending:", payload);
 
-    await fetch(BACKEND_URL, {
-      method: "POST",
-      mode: 'no-cors',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+    // Show spinner and disable button
+    submitBtnEl.disabled = true;
+    submitSpinner.classList.remove("d-none");
+    submitStatus.textContent = "Submitting...";
+    submitLabel.classList.add("d-none");
 
-    alert("Thank you! Your submission has been received.");
-    e.target.reset();
+    let success = false;
+    try {
+      await fetch(BACKEND_URL, {
+        method: "POST",
+        mode: 'no-cors',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      success = true;
+    } catch (err) {
+      console.error("Submit error:", err);
+      success = false;
+    }
+
+    // Hide spinner
+    submitSpinner.classList.add("d-none");
+
+    if (success) {
+      // Show check icon and green button
+      submitStatus.textContent = "";
+      submitIcon.classList.remove("d-none");
+      submitBtnEl.classList.remove("btn-primary");
+      submitBtnEl.classList.add("btn-success");
+      submitLabel.textContent = "Form submitted!";
+      submitLabel.classList.remove("d-none");
+      thankYouMsg.classList.remove("d-none");
+    } else {
+      // Show error message and re-enable button so user can retry
+      submitStatus.textContent = "There was an error sending your submission. Please try again.";
+      submitBtnEl.disabled = false;
+      submitLabel.classList.remove("d-none");
+    }
   });
 });
 

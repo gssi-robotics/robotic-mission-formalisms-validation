@@ -735,7 +735,7 @@
 
 
     <!-- FINAL COMMENTS -->
-    <div id="finalComments" class="p-3 border rounded d-none">
+    <div id="finalComments" class="p-3 mb-3 border rounded d-none">
       <h4>Final Comments</h4>
 
       <div class="mb-3">
@@ -751,8 +751,16 @@
       <textarea class="form-control" name="final_comments" placeholder="Write here if you have further comments to add"></textarea>
     </div>
 
-    <p id="noteLabel" style="font-style: italic;" class="d-none"><i class="bi bi-exclamation-triangle" style="color: red;"></i> Please do not close this page until you have received the popup confirmation of submission.</p>
-    <button id="submitBtn" type="submit" class="btn btn-primary mt-3 d-none">Submit</button>
+    <p id="noteLabel" style="font-style: italic;" class="d-none"><i class="bi bi-exclamation-triangle" style="color: red;"></i> The submission of the form may take a few seconds. Please do not close this page until you have received the confirmation of submission.</p>
+    <div class="d-flex align-items-center">
+      <button id="submitBtn" type="submit" class="btn btn-primary mt-3 mb-3 d-none">
+      <span id="submitLabel" class="btn-label">Submit</span>
+      <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+      <i id="submitIcon" class="bi bi-check-lg ms-2 d-none" aria-hidden="true"></i>
+      <span id="submitStatus" class="ms-2"></span>
+      </button>
+      <span id="thankYouMsg" class="ms-3 text-success d-none" role="status" aria-live="polite">Thank you for your participation to the survey! We appreciate it :)</span>
+    </div>
 
   </form>
 
