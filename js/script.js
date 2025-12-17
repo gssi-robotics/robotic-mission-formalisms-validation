@@ -22,26 +22,54 @@ document.addEventListener("DOMContentLoaded", () => {
   // Conditional display based on expertise >= 3 (i.e., some experience)
   document.getElementById("expertiseContinue").addEventListener("click", () => {
 
+    // --- 1) VALIDATE GENERAL INFO + EXPERTISE FIELDS ---
     const expGroup = document.getElementById("expertiseSelection");
     const genInfoGroup = document.getElementById("generalInformation");
-    const expFields = expGroup ? expGroup.querySelectorAll("select[required], input[required]") : [];
-    const genFields = genInfoGroup ? genInfoGroup.querySelectorAll("select[required], input[required]") : [];
-    const fields = Array.prototype.slice.call(expFields).concat(Array.prototype.slice.call(genFields));
-    let valid = true;
 
-    fields.forEach(field => {
-        if (!field.value) {
-            valid = false;
-            field.classList.add("is-invalid");   // evidenzia errore
-        } else {
-            field.classList.remove("is-invalid");
-        }
+    const requiredFields = [
+      ...expGroup.querySelectorAll("select[required], input[required]"),
+      ...genInfoGroup.querySelectorAll("select[required], input[required]")
+    ];
+
+    let valid = true;
+    requiredFields.forEach(field => {
+      if (!field.value) {
+        field.classList.add("is-invalid");
+        valid = false;
+      } else {
+        field.classList.remove("is-invalid");
+      }
     });
-    if (!valid) {
-        // alert("Please fill in all required fields before continuing.");
+
+    if (!valid) return; // Stop here if missing required fields
+
+
+    // --- 2) CHECK EXPERTISE LEVELS ---
+    const btLevel = parseInt(bt.value || 0);
+    const smLevel = parseInt(sm.value || 0);
+    const htnLevel = parseInt(htn.value || 0);
+    const bpmnLevel = parseInt(bpmn.value || 0);
+
+    const allBelow3 = (btLevel < 3 && smLevel < 3 && htnLevel < 3 && bpmnLevel < 3);
+
+    if (allBelow3) {
+      const confirmExit = confirm(
+        "You indicated that you have no familiarity with any of the four formalisms.\n\n" +
+        "Do you confirm this?\n" +
+        "Press OK to exit the survey, or Cancel to revise your answers."
+      );
+
+      if (confirmExit) {
+        // Choose ONE: redirect, hide form, or clear page
+        window.location.href = "https://www.google.com";
         return;
+      } else {
+        return; // Let user revise their answers
+      }
     }
 
+
+    // --- 3) CONTINUE TO RQ1, RQ2, RQ3 ---
     rq1.classList.remove("d-none");
     rq2.classList.remove("d-none");
     rq3.classList.remove("d-none");
@@ -50,58 +78,41 @@ document.addEventListener("DOMContentLoaded", () => {
     noteLabel.classList.remove("d-none");
 
     const formLevels = {
-      bt: parseInt(bt.value),
-      sm: parseInt(sm.value),
-      htn: parseInt(htn.value),
-      bpmn: parseInt(bpmn.value)
+      bt: btLevel,
+      sm: smLevel,
+      htn: htnLevel,
+      bpmn: bpmnLevel
     };
 
-    rq1Blocks.forEach(block => {
-      const f = block.dataset.form;
-      if (formLevels[f] >= 3) block.classList.remove("d-none");
-      else block.classList.add("d-none");
-    });
 
+    // --- 4) SHOW/HIDE + REQUIRED SWITCHING FOR RQ1 ---
     rq1Blocks.forEach(block => {
       const f = block.dataset.form;
-      const visible = (formLevels[f] >= 3);
-    
+      const visible = formLevels[f] >= 3;
+
+      block.classList.toggle("d-none", !visible);
       toggleRequiredInBlock(block, visible);
     });
 
-    rq3Blocks.forEach(block => {
-      const f = block.dataset.form;
-      const visible = (formLevels[f] >= 3);
-    
-      if (visible) block.classList.remove("d-none");
-      else block.classList.add("d-none");
-    
-      toggleRequiredInBlock(block, visible);
-    });
-
+    // --- 5) SHOW/HIDE + REQUIRED SWITCHING FOR RQ2 ---
     rq2Blocks.forEach(block => {
-      const f = block.dataset.form;
-      const visible = (formLevels[f] >= 3);
-    
-      if (visible) block.classList.remove("d-none");
-      else block.classList.add("d-none");
-    
+      const f = block.dataset.form; // e.g. bt, sm, htn, bpmn
+      const visible = formLevels[f] >= 3;
+
+      block.classList.toggle("d-none", !visible);
       toggleRequiredInBlock(block, visible);
     });
-    
-    
 
-    // rq2Blocks.forEach(block => {
-    //   const f = block.dataset.form;
-    //   formLevels[f] >= 2 ? block.classList.remove("d-none") : block.classList.add("d-none");
-    // });
-
+    // --- 6) SHOW/HIDE + REQUIRED SWITCHING FOR RQ3 ---
     rq3Blocks.forEach(block => {
       const f = block.dataset.form;
-      if (formLevels[f] >= 3) block.classList.remove("d-none");
-      else block.classList.add("d-none");
+      const visible = formLevels[f] >= 3;
+
+      block.classList.toggle("d-none", !visible);
+      toggleRequiredInBlock(block, visible);
     });
   });
+
 
   // SUBMIT
   document.getElementById("surveyForm").addEventListener("submit", async (e) => {
@@ -116,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     await fetch(BACKEND_URL, {
       method: "POST",
       mode: 'no-cors',
-      headers: {"Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
@@ -197,7 +208,7 @@ function setupConditionalRequired() {
 
     if (base.endsWith("_concepts")) {
       textareaChangeName = base + "_change";
-      textareaMissingName = base + "_missing"; 
+      textareaMissingName = base + "_missing";
     }
 
     else if (base.endsWith("_control")) {
