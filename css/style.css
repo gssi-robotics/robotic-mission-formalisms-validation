@@ -423,3 +423,13 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+.adaptive-popover {
+  cursor: pointer;
+  color: var(--text-main);
+  font-size: small;
+}
+
+.bi-info-circle-fill {
+    color: var(--text-main);
+}
