@@ -12,8 +12,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const rq2 = document.getElementById("rq2");
   const rq3 = document.getElementById("rq3");
   const finalComments = document.getElementById("finalComments");
+  const contactInfo = document.getElementById("contactInfo");
   const submitBtn = document.getElementById("submitBtn");
   const noteLabel = document.getElementById("noteLabel");
+
+  const formEl = document.getElementById("surveyForm");
+  let isFormSubmitted = false; // becomes true after successful submission
+
+  // beforeunload handler: warn user if form is dirty and not yet submitted
+  function isFormDirty() {
+    if (!formEl) return false;
+    return Array.from(formEl.elements).some(el => {
+      if (!el) return false;
+      if (el.tagName === 'BUTTON') return false;
+      if (el.disabled) return false;
+      const t = el.tagName.toLowerCase();
+      if (t === 'input' || t === 'select' || t === 'textarea') {
+        return String(el.value || '').trim() !== '';
+      }
+      return false;
+    });
+  }
+
+  function beforeUnloadHandler(e) {
+    if (isFormSubmitted) return undefined;
+    if (!isFormDirty()) return undefined;
+    e.preventDefault();
+    // Chrome requires assignment to returnValue
+    e.returnValue = '';
+    return '';
+  }
+
+  window.addEventListener('beforeunload', beforeUnloadHandler);
 
   const rq1Blocks = document.querySelectorAll(".formalism-block");
   const rq2Blocks = document.querySelectorAll(".rq2-block");
@@ -53,27 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const allBelow3 = (btLevel < 3 && smLevel < 3 && htnLevel < 3 && bpmnLevel < 3);
 
     if (allBelow3) {
-      const confirmExit = confirm(
-        "You indicated that you have no familiarity with any of the four formalisms.\n\n" +
-        "Do you confirm this?\n" +
-        "Press OK to exit the survey, or Cancel to revise your answers."
+      alert(
+      "You indicated that you have no familiarity with any of the four formalisms.\n\n" +
+      "Are you sure?"
       );
-
-      if (confirmExit) {
-        // Choose ONE: redirect, hide form, or clear page
-        window.location.href = "https://www.google.com";
-        return;
-      } else {
-        return; // Let user revise their answers
-      }
+      return;
     }
-
 
     // --- 3) CONTINUE TO RQ1, RQ2, RQ3 ---
     rq1.classList.remove("d-none");
     rq2.classList.remove("d-none");
     rq3.classList.remove("d-none");
     finalComments.classList.remove("d-none");
+    contactInfo.classList.remove("d-none");
     submitBtn.classList.remove("d-none");
     noteLabel.classList.remove("d-none");
 
@@ -154,6 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
     submitSpinner.classList.add("d-none");
 
     if (success) {
+      // Mark the form as successfully submitted and remove the beforeunload handler
+      isFormSubmitted = true;
+      try { window.removeEventListener('beforeunload', beforeUnloadHandler); } catch (e) {}
+
       // Show check icon and green button
       submitStatus.textContent = "";
       submitIcon.classList.remove("d-none");
@@ -183,20 +209,38 @@ function setupRQ2DynamicRequired() {
 
     if (!textarea) return;
 
-    // When the user selects a value:
-    select.addEventListener("change", () => {
+    // When the user selects a value: mark textarea required only when needed
+    // and show the red border only when it's required AND empty. Also
+    // listen to input on the textarea to remove the red border as soon as the
+    // user types something valid.
+    const onSelectChange = () => {
       const value = parseInt(select.value);
+      const need = value <= 3;
 
-      if (value <= 3) {
-        textarea.required = true;
-        textarea.placeholder = "Please explain why (required)";
+      textarea.required = need;
+      textarea.placeholder = need ? "Please explain why (required)" : "Optional";
+
+      // Only show red border when required AND currently empty
+      if (need && String(textarea.value || '').trim() === '') {
         textarea.classList.add("border-danger");
       } else {
-        textarea.required = false;
-        textarea.placeholder = "Optional";
+        textarea.classList.remove("border-danger");
+      }
+    };
+
+    select.addEventListener("change", onSelectChange);
+
+    // Remove red border as soon as user fills the textarea (if it was required)
+    textarea.addEventListener("change", () => {
+      if (textarea.required && String(textarea.value || '').trim() === '') {
+        textarea.classList.add("border-danger");
+      } else {
         textarea.classList.remove("border-danger");
       }
     });
+
+    // Initialize state based on current select value (in case of back/forward)
+    onSelectChange();
   });
 }
 

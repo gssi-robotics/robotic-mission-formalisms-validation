@@ -29,15 +29,24 @@
       This survey aims to validate the results of our study by gathering expert feedback on the correctness,
       completeness, and applicability of our findings. In particular, we ask you to review a subset of results related
       to the formalism(s) in which you have expertise and to evaluate whether our characterization, expressivity analysis, and
-      identified strenghts and weaknesses accurately reflect current practice in robotics.
+      identified strengths and weaknesses accurately reflect current practice in robotics.
     </p>
     <h5>Data processing</h5>
     <p>
-      Any personal information will be removed during analysis and will not appear in any publications or presentations. Only the research team will have access to your contact data. Your responses will be anonymized, and used solely for academic research purposes. Only the research team will have access to your contact data.
+      Any personal information will be removed during analysis and will not appear in any publications or presentations.
+      Only the research team will have access to contact data, which will be used solely for study-related communication.
+    </p>
+    <h5>Ethical aspects</h5>
+    <p>
+      No personal, sensitive, or potentially harmful information is collected.
+      Participation is voluntary, and no risks or direct benefits are expected.
+      Your responses are anonymous and will be used solely for academic research purposes.
     </p>
     <h5>Consent</h5>
     <p>
-      Your participation is voluntary. Upon request, all data associated with you will be deleted immediately and excluded from any analysis or publication. You may withdraw at any time by closing the survey before submission.
+      Your participation is voluntary and based on informed consent.
+      You may withdraw at any time by closing the survey before submission.
+      Upon request, all data associated with you will be deleted and excluded from any analysis or publication.
     </p>
     <h5>Contact Information</h5>
     <p>
@@ -121,7 +130,7 @@
       </select>
 
       <label class="form-label">How familiar are you with Business Process Model and Notation (BPMN)?</label>
-      <select class="form-select mb-2" name="bpmn_level" id="bpmn_level" required>
+      <select class="form-select mb-3" name="bpmn_level" id="bpmn_level" required>
         <option value="">Select an option</option>
         <option value="1">1 - Not familiar</option>
         <option value="2">2 - Heard of it</option>
@@ -129,6 +138,8 @@
         <option value="4">4 - Used many times</option>
         <option value="5">5 - Expert user</option>
       </select>
+
+      <p class="mb-3">You will be asked to evaluate the analysis we conducted only on the formalisms you selected to be more familiar with.</p>
 
       <button type="button" id="expertiseContinue" class="btn btn-primary mt-3">Continue</button>
     </div>
@@ -145,7 +156,6 @@
       </ul>
 
       <p>In the following, we show the control structures we identified for each of the formalisms and how the mission concepts are mapped with the constructs offered by the formalisms.</p>
-      <p><u>You will be asked to evaluate the analysis we conducted only on the formalisms you selected to be more familiar with.</u> </p>
 
       <div class="formalism-block d-none" data-form="bt">
         <h5>Behavior Trees</h5>
@@ -373,14 +383,14 @@
 
     <!-- RQ2 -->
     <div id="rq2" class="mb-4 p-3 border rounded d-none">
-      <h4>Part 2: Expressiveness analysis, strenghts, and weaknesses</h4>
+      <h4>Part 2: Expressiveness analysis, strengths, and weaknesses</h4>
 
       <h6><i>What are the peculiarities and limitations of modeling missions with the formalisms?</i></h6>
 
       <p>In this part we analyze:</p>
       <ul>
         <li> The expressiveness of the formalisms in modeling the main concerns related to robotic missions</li>
-        <li> The main strenghts and weaknesses of the formalisms with respect to the expressiveness of the identified concerns.</li>
+        <li> The main strengths and weaknesses of the formalisms with respect to the expressiveness of the identified concerns.</li>
       </ul>
 
       <!-- FORMALISM BLOCK TEMPLATE -->
@@ -515,7 +525,7 @@
         <div data-include="tables/pro_cons_bt.html"></div>
 
           <div class="mb-3">
-          <label>Do you agree with the identified strenghts and weaknesses of BTs?</label>
+          <label>Do you agree with the identified strengths and weaknesses of BTs?</label>
           <select class="form-select mb-1" name="rq3_bt_pro_cons_agreement" required>
             <option value="" selected disabled>Select an option</option>
             <option value="1">1 - Strongly Disagree</option>
@@ -532,7 +542,7 @@
         <h5>SMs strengths &amp; weaknesses</h5>
         <div data-include="tables/pro_cons_sm.html"></div>  
         <div class="mb-3">
-          <label>Do you agree with the identified strenghts and weaknesses of SMs?</label>
+          <label>Do you agree with the identified strengths and weaknesses of SMs?</label>
           <select class="form-select mb-1" name="rq3_sm_pro_cons_agreement" required>
             <option value="" selected disabled>Select an option</option>
             <option value="1">1 - Strongly Disagree</option>
@@ -549,7 +559,7 @@
         <h5>HTNs strengths &amp; weaknesses</h5>
         <div data-include="tables/pro_cons_htn.html"></div>  
         <div class="mb-3">
-          <label>Do you agree with the identified strenghts and weaknesses of HTNs?</label>
+          <label>Do you agree with the identified strengths and weaknesses of HTNs?</label>
           <select class="form-select mb-1" name="rq3_htn_pro_cons_agreement" required>
             <option value="" selected disabled>Select an option</option>
             <option value="1">1 - Strongly Disagree</option>
@@ -566,7 +576,7 @@
         <h5>BPMN strengths &amp; weaknesses</h5>
         <div data-include="tables/pro_cons_bpmn.html"></div>  
         <div class="mb-3">
-          <label>Do you agree with the identified strenghts and weaknesses of BPMN?</label>
+          <label>Do you agree with the identified strengths and weaknesses of BPMN?</label>
           <select class="form-select mb-1" name="rq3_bpmn_pro_cons_agreement" required>
             <option value="" selected disabled>Select an option</option>
             <option value="1">1 - Strongly Disagree</option>
@@ -737,18 +747,25 @@
     <!-- FINAL COMMENTS -->
     <div id="finalComments" class="p-3 mb-3 border rounded d-none">
       <h4>Final Comments</h4>
+      <textarea class="form-control mb-3" name="final_comments" placeholder="Write here if you have further comments to add"></textarea>
+    </div>
+    
+    <!-- CONTACT INFO -->    
+    <div id="contactInfo" class="p-3 mb-3 border rounded d-none">
+        <h4>Contact Information</h4>
 
-      <div class="mb-3">
-        <p>Please provide your email if you agree to be contacted for follow-up questions regarding your responses.</p>
-
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" name="email">
-        <!-- <label class="form-text">
-          (agree for eventual follow-up questions)
-          <input type="checkbox" id="consent-checkbox" class="form-check-input" checked> -->
-      </div>
-
-      <textarea class="form-control" name="final_comments" placeholder="Write here if you have further comments to add"></textarea>
+        <div class="mb-3">
+          <label class="form-label">Please insert your name (Required for participation tracking only. This information will not be associated with your survey responses and will not appear in any publication.).</label>
+          <input type="text" class="form-control" name="name" placeholder="Name" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Please provide your email if you agree to be contacted for follow-up questions regarding your responses (optional).</label>  
+          <input type="email" class="form-control" name="email" placeholder="Email">
+          <!-- <label class="form-text">
+            (agree for eventual follow-up questions)
+            <input type="checkbox" id="consent-checkbox" class="form-check-input" checked> -->
+        </div>
     </div>
 
     <p id="noteLabel" style="font-style: italic;" class="d-none"><i class="bi bi-exclamation-triangle" style="color: red;"></i> The submission of the form may take a few seconds. Please do not close this page until you have received the confirmation of submission.</p>
