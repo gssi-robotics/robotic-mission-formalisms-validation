@@ -1,5 +1,5 @@
 // URL google sheet endpoint
-const BACKEND_URL = "https://script.google.com/macros/s/AKfycbw_JA-vmqfFz-JIHEpjRcoUba4xnfKQ-ulEQV7NCqWAdeuWNez6V7Cm2QOYk64xDkm2/exec";
+const BACKEND_URL = "";
 
 document.addEventListener("DOMContentLoaded", () => {
 
